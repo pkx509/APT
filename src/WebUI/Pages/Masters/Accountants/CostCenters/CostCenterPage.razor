@@ -1,0 +1,65 @@
+﻿@page "/Master/Accountants/CostCenters"
+
+@namespace GFCA.WebUI.Pages.Masters.Accountants.CostCenters
+
+<ContentMain>
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+                    <CardTitle>
+                        <i class="ion ion-clipboard mr-1"></i>
+                        CostCenter Masters
+                    </CardTitle>
+                </Header>
+                <Body>
+
+                    <SfGrid TValue="CostCenterDto" AllowPaging="true" AllowFiltering="true" AllowSorting="true" Toolbar="@(new string[] { "Add", "Edit", "Delete" })">
+                        <SfDataManager AdaptorInstance="@typeof(CostCenterService)" Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                        <GridEvents OnActionComplete="ActionCompleteHandler" TValue="CostCenterDto"></GridEvents>
+                        <GridFilterSettings Type="Syncfusion.Blazor.Grids.FilterType.Menu"></GridFilterSettings>
+                        <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true" Mode="@EditMode.Dialog" Dialog="DialogParams">
+                            <Template>
+                                @{
+                                    var model = (context as CostCenterDto);
+                                }
+                                <div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtCostCenterCode" @bind-Value="@(model.CostCenterCode)" Enabled="@(EnabledAdd)" FloatLabelType="FloatLabelType.Always" Placeholder="Code"></SfTextBox>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtCostCenterName" @bind-Value="@(model.CostCenterName)" FloatLabelType="FloatLabelType.Always" Placeholder="CostCenter"></SfTextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Template>
+                        </GridEditSettings>
+                        <GridColumns>
+                            <GridColumn Field=@nameof(CostCenterDto.CostCenterId) IsPrimaryKey="true" Visible="false" />
+                            <GridColumn Field=@nameof(CostCenterDto.CostCenterCode) HeaderText="Code" TextAlign="@TextAlign.Left" HeaderTextAlign="@TextAlign.Center" Width="90"
+                                        ValidationRules="@(new ValidationRules{ Required=true })"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.CheckBox })"
+                                        ClipMode="ClipMode.EllipsisWithTooltip"></GridColumn>
+                            <GridColumn Field=@nameof(CostCenterDto.CostCenterName) HeaderText="Name" Width="250"
+                                        ValidationRules="@(new ValidationRules{ Required=true})"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+
+
+                            <GridColumn Field=@nameof(CostCenterDto.CreatedBy) HeaderText="Created By" Width="180"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(CostCenterDto.CreatedDate) HeaderText="Created Date" Width="180"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Menu })"></GridColumn>
+                            <GridColumn Field=@nameof(CostCenterDto.UpdatedBy) HeaderText="Updated By" Width="180"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(CostCenterDto.UpdatedDate) HeaderText="Updated Date" Width="180"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Menu })"></GridColumn>
+
+                        </GridColumns>
+                    </SfGrid>
+
+                </Body>
+            </Card>
+        </Column>
+    </Row>
+</ContentMain>

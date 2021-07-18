@@ -1,0 +1,60 @@
+@page "/Master/Sales/SourceFunds"
+
+@namespace GFCA.WebUI.Pages.Masters.Sales.SourceFunds
+
+<ContentMain>
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+                    <CardTitle>
+                        <i class="ion ion-clipboard mr-1"></i>
+                        SourceFund Masters
+                    </CardTitle>
+                </Header>
+                <Body>
+
+                    <SfGrid TValue="SourceFundDto" AllowPaging="true" AllowFiltering="true" AllowSorting="true" Toolbar="@(new string[] { "Add", "Edit", "Delete" })">
+                        <SfDataManager AdaptorInstance="@typeof(SourceFundService)" Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                        <GridEvents OnActionComplete="ActionCompleteHandler" TValue="SourceFundDto"></GridEvents>
+                        <GridFilterSettings Type="Syncfusion.Blazor.Grids.FilterType.Menu"></GridFilterSettings>
+                        <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true" Mode="@EditMode.Dialog" Dialog="DialogParams">
+                            <Template>
+                                @{
+                                    var model = (context as SourceFundDto);
+                                }
+                                <div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtSourceFundCode" @bind-Value="@(model.SourceFundCode)" Enabled="@(EnabledAdd)" FloatLabelType="FloatLabelType.Always" Placeholder="Code"></SfTextBox>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtSourceFundName" @bind-Value="@(model.SourceFundName)" FloatLabelType="FloatLabelType.Always" Placeholder="SourceFund"></SfTextBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <SfTextBox ID="txtSourceFundDesc" @bind-Value="@(model.SourceFundDesc)" FloatLabelType="FloatLabelType.Always" Placeholder="Description"></SfTextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Template>
+                        </GridEditSettings>
+                        <GridColumns>
+                            <GridColumn Field=@nameof(SourceFundDto.SourceFundId) IsPrimaryKey="true" Visible="false" />
+                            <GridColumn Field=@nameof(SourceFundDto.SourceFundCode) HeaderText="Code" TextAlign="@TextAlign.Left" HeaderTextAlign="@TextAlign.Center" Width="90"
+                                        ValidationRules="@(new ValidationRules{ Required=true })"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.CheckBox })"
+                                        ClipMode="ClipMode.EllipsisWithTooltip"></GridColumn>
+                            <GridColumn Field=@nameof(SourceFundDto.SourceFundName) HeaderText="Name" Width="250"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(SourceFundDto.SourceFundDesc) HeaderText="Name" Width="250"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                        </GridColumns>
+                    </SfGrid>
+
+                </Body>
+            </Card>
+        </Column>
+    </Row>
+</ContentMain>

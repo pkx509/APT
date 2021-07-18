@@ -1,0 +1,65 @@
+﻿<BrandLogo Link="/" Logo="dist/img/AdminLTELogo.png">Asiatic APT</BrandLogo>
+<SideBar>
+    <SideBarMenu>
+        @*
+        <SideBarMenuItem Link="/" Icon="fas fa-th">
+            Dashboard
+        </SideBarMenuItem>
+        *@
+        <SideBarTreeView MenuState="MenuState.Open" Icon="fas fa-inbox">
+            <Title>Dummy Operation</Title>
+            <Items>
+
+                <SideBarMenuItem Link="/MyInbox/Documents/Selector" Icon="fas fa-paper-plane">New Document</SideBarMenuItem>
+                <SideBarMenuItem Link="/MyInbox/Documents/PromotionGroup" Icon="fas fa-paper-plane">Promotion Group</SideBarMenuItem>
+                <SideBarMenuItem Link="/MyInbox/Documents/PromotionOverview" Icon="fas fa-paper-plane">Promotion Overview</SideBarMenuItem>
+                <SideBarMenuItem Link="/MyInbox/Documents/FixedContract/1" Icon="fas fa-paper-plane">Fixed Contract</SideBarMenuItem>
+                <SideBarMenuItem Link="/MyInbox/Documents/Budgets" Icon="fas fa-paper-plane">Budget Planing</SideBarMenuItem>
+                @*
+        <SideBarMenuItem Link="/MyInbox/Documents/FixedContract/1" Icon="fas fa-paper-plane">Promoton Planing</SideBarMenuItem>
+                *@
+                <SideBarMenuItem Link="/MyInbox/Documents/SalesForecast" Icon="fas fa-paper-plane">Sale Forcast</SideBarMenuItem>
+            </Items>
+        </SideBarTreeView>
+        <SideBarTreeView MenuState="MenuState.Open" Icon="fas fa-inbox">
+            <Title>Inbox</Title>
+            <Items>
+                <SideBarMenuItem Link="/MyInbox/PendingRequest" Icon="fas fa-paper-plane">My Pending Request</SideBarMenuItem>
+                <SideBarMenuItem Link="/MyInbox/PendingApproval" Icon="fas fa-signature">My Pending Approval</SideBarMenuItem>
+                <SideBarMenuItem Link="/MyInbox/Completed" Icon="fas fa-list-ul">My Completed Request</SideBarMenuItem>
+                <SideBarMenuItem Link="/MyInbox/Draft" Icon="fas fa-envelope">My Draft</SideBarMenuItem>
+            </Items>
+        </SideBarTreeView>
+        <SideBarTreeView MenuState="MenuState.Open" Icon="fas fa-brain">
+            <Title>Master</Title>
+            <Items>
+                <SideBarMenuItem Icon="fas fa-hand-holding-usd" Link="/Master/Sales/TradeActivities">Trade Activities</SideBarMenuItem>
+                <SideBarMenuItem Icon="fas fa-hand-holding-usd" Link="/Master/Accountants/CostCenters">Cost Center</SideBarMenuItem>
+                <SideBarMenuItem Icon="fas fa-hand-holding-usd" Link="/Master/Accountants/GLAccounts">GL Account</SideBarMenuItem>
+                <SideBarMenuItem Icon="fas fa-hand-holding-usd" Link="/Master/Accountants/GLGroups">GL Group</SideBarMenuItem>
+                
+                <SideBarMenuItem Icon="fas fa-user-tie" Link="/Master/BusinessParties/Customers">Customer</SideBarMenuItem>
+                <SideBarMenuItem Icon="fas fa-user-tie" Link="/Master/BusinessParties/Suppliers">Supplier</SideBarMenuItem>
+                <!--
+                <SideBarMenuItem Icon="fas fa-paperclip" Link="/Master/Documents/DocumentTypes">Document Type</SideBarMenuItem>
+                <SideBarMenuItem Icon="fas fa-paperclip" Link="/Master/Documents/BudgetTypes">Budget Type</SideBarMenuItem>
+                <SideBarMenuItem Icon="fas fa-paperclip" Link="/Master/Documents/ForecastTypes">Forecast Type</SideBarMenuItem>
+                -->
+                <SideBarMenuItem Icon="fas fa-sitemap" Link="/Master/Organizations/Companies">Company</SideBarMenuItem>
+                <SideBarMenuItem Icon="fas fa-sitemap" Link="/Master/Organizations/Departments">Department</SideBarMenuItem>
+                <SideBarMenuItem Icon="fas fa-sitemap" Link="/Master/Organizations/Employees">Employee</SideBarMenuItem>
+
+                <SideBarMenuItem Icon="fab fa-salesforce" Link="/Master/Sales/Channels">Channel</SideBarMenuItem>
+                <!-- <SideBarMenuItem Icon="fab fa-salesforce" Link="/Master/Sales/CustomerProducts">Customer Product</SideBarMenuItem> -->
+                <SideBarMenuItem Icon="fab fa-salesforce" Link="/Master/Sales/SourceFunds">Source Funds</SideBarMenuItem>
+                <!-- <SideBarMenuItem Icon="fab fa-salesforce" Link="/Master/Sales/TradeInvesments">Trade Invesments</SideBarMenuItem>-->
+                <!-- <SideBarMenuItem Icon="fab fa-salesforce" Link="/Master/ShipTo">ShipTo</SideBarMenuItem> -->
+
+                <SideBarMenuItem Icon="fas fa-warehouse" Link="/Master/Warehouses/Brands">Brand</SideBarMenuItem>
+                <!--<SideBarMenuItem Icon="fas fa-warehouse" Link="/Master/Warehouses/ProductCategories">Product Category</SideBarMenuItem>-->
+                <SideBarMenuItem Icon="fas fa-warehouse" Link="/Master/Warehouses/Products">Product</SideBarMenuItem>
+            </Items>
+        </SideBarTreeView>
+
+    </SideBarMenu>
+</SideBar>

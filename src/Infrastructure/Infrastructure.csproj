@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>GFCA.Infrastructure</RootNamespace>
+    <AssemblyName>GFCA.Infrastructure</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="3.1.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.11" />
+    <PackageReference Include="CsvHelper" Version="24.0.1" />
+    <PackageReference Include="Dapper" Version="2.0.78" />
+    <PackageReference Include="MailKit" Version="2.10.1" />
+    <PackageReference Include="DnsClient" Version="1.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Application\Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Persistence\Repositories\" />
+    <Folder Include="Persistence\Configurations\Workflows\" />
+    <Folder Include="Persistence\Configurations\Accounttants\" />
+    <Folder Include="Persistence\Configurations\Sales\" />
+    <Folder Include="Persistence\Configurations\Warehouses\" />
+    <Folder Include="Microsoft\" />
+    <Folder Include="Microsoft\EntityFrameworkCore\" />
+    <Folder Include="Microsoft\EntityFrameworkCore\Migrations\" />
+    <Folder Include="Microsoft\EntityFrameworkCore\Metadata\" />
+    <Folder Include="Microsoft\EntityFrameworkCore\SqlServer\" />
+    <Folder Include="Microsoft\EntityFrameworkCore\SqlServer\Migrations\" />
+    <Folder Include="Microsoft\EntityFrameworkCore\SqlServer\Migrations\Internal\" />
+    <Folder Include="Persistence\Configurations\Organizations\" />
+    <Folder Include="Mails\" />
+    <Folder Include="Persistence\Configurations\BusinessParties\" />
+    <Folder Include="Persistence\Configurations\Documents\" />
+    <Folder Include="Persistence\Configurations\Applications\" />
+    <Folder Include="Mails\SmtpValidator\" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,203 @@
+﻿@page "/MyInbox/Documents/PromotionPlanning/Invesment/{InvesmentNo}"
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.DropDowns;
+@using Syncfusion.Blazor.Navigations
+
+@namespace GFCA.WebUI.Pages.MyInbox.Documents
+
+@inject NavigationManager nav
+
+<style>
+    div.table {
+        display: table;
+        width: 80%;
+        margin: .5% auto 0;
+        border-collapse: separate;
+        font-weight: 400;
+    }
+
+    .table_row {
+        display: table-row;
+    }
+
+    .table_small {
+        display: table-cell;
+    }
+
+    .table_row > .table_small > .table_cell {
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+
+    @@media screen and (max-width: 1080px) {
+        .table {
+            width: 90%
+        }
+    }
+</style>
+
+<ContentMain>
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+
+                    <div class="table_row">
+                        <div class="table_small">
+                            <div class="table_cell">Promotion Planning : Invesment : @InvesmentNo</div>
+                        </div>
+                    </div>
+
+                </Header>
+                <Body>
+
+                    <div class="table">
+
+                        <div class="table_row">
+
+                            <div class="table_small"><div class="table_cell">Brand :</div></div>
+                            <div class="table_small"><div class="table_cell"><input /></div></div>
+                            <div class="table_small"><div class="table_cell">Product :</div></div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <select name="product">
+                                        <option value="Draft">Draft</option>
+                                        <option value="Pending Revision">Pending Revistion</option>
+                                        <option value="Pending Approve">Pending Approve</option>
+                                        <option value="Approved">Approved</option>
+                                        <option value="Rejected">Rejected</option>
+                                        <option value="Cancelled">Cancelled</option>
+                                        <option value="Executed">Executed</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_row">
+
+                            <div class="table_small"><div class="table_cell">Trade Activity :</div></div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <select name="activity">
+                                        <option value="Draft">Draft</option>
+                                        <option value="Pending Revision">Pending Revistion</option>
+                                        <option value="Pending Approve">Pending Approve</option>
+                                        <option value="Approved">Approved</option>
+                                        <option value="Rejected">Rejected</option>
+                                        <option value="Cancelled">Cancelled</option>
+                                        <option value="Executed">Executed</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="table_small"><div class="table_cell">Sale Quantity :</div></div>
+                            <div class="table_small"><div class="table_cell"><input type="text" /></div></div>
+
+                        </div>
+                        <div class="table_row">
+
+                            <div class="table_small"><div class="table_cell">Input Type :</div></div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <select name="InputType">
+                                        <option value="Value" selected>Value</option>
+                                        <option value="Percent">%</option>
+                                        <option value="VPU">Value per Unit</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="table_small"><div class="table_cell">Cost Center :</div></div>
+                            <div class="table_small"><div class="table_cell"><input type="text" /></div></div>
+
+                        </div>
+                        <div class="table_row">
+
+                            <div class="table_small"><div class="table_cell">Value :</div></div>
+                            <div class="table_small"><div class="table_cell"><input type="text" /></div></div>
+                            <div class="table_small"><div class="table_cell">Source of fund :</div></div>
+                            <div class="table_small"><div class="table_cell"><input type="text" /></div></div>
+
+                        </div>
+
+                        <div class="table_row">
+
+                            <div class="table_small"><div class="table_cell">Invedment Amount :</div></div>
+                            <div class="table_small"><div class="table_cell"><input type="text" /></div></div>
+                            <div class="table_small"><div class="table_cell">Amount :</div></div>
+                            <div class="table_small"><div class="table_cell"><input type="text" /></div></div>
+
+                        </div>
+
+                        <div class="table_row">
+
+                            <div class="table_small"><div class="table_cell">Other Activity :</div></div>
+                            <div class="table_small"><div class="table_cell"><input type="text" /></div></div>
+                            <div class="table_small"><div class="table_cell" style="text-decoration: underline;">Additional Allocation</div></div>
+
+                        </div>
+
+                        <div class="table_row">
+
+                            <div class="table_small"><div class="table_cell">Other Amount :</div></div>
+                            <div class="table_small"><div class="table_cell"><input type="text" /></div></div>
+                            <div class="table_small"><div class="table_cell">Cost center 2 :</div></div>
+                            <div class="table_small"><div class="table_cell"><input type="text" /></div></div>
+
+                        </div>
+
+                        <div class="table_row">
+
+                            <div class="table_small"><div class="table_cell">Combine other activity :</div></div>
+                            <div class="table_small"><div class="table_cell"><input type="checkbox" /></div></div>
+                            <div class="table_small"><div class="table_cell">Source of fund 2 :</div></div>
+                            <div class="table_small"><div class="table_cell"><input type="text" /></div></div>
+
+                        </div>
+
+                        <div class="table_row">
+
+                            <div class="table_small"><div class="table_cell">Incremental Sale vs Invesment :</div></div>
+                            <div class="table_small"><div class="table_cell"><input type="text" /></div></div>
+                            <div class="table_small"><div class="table_cell">Amount :</div></div>
+                            <div class="table_small"><div class="table_cell"><input type="text" /></div></div>
+
+                        </div>
+
+                        <div class="table_row">
+
+                            <div class="table_small"><div class="table_cell">Remark :</div></div>
+                            <div class="table_small"><div class="table_cell"><textarea cols="4" rows="2" style="min-width:fit-content();" /></div></div>
+
+                        </div>
+
+                    </div>
+                    
+                </Body>
+                <Footer>
+                    <NavLink href="/MyInbox/Documents/PromotionGroup/P-20210501-00001" class="nave-link" Match="NavLinkMatch.All">
+                        <div class="btn btn-primary"> Save </div>
+                    </NavLink>
+                    <NavLink href="/MyInbox/Documents/PromotionGroup/P-20210501-00001" class="nave-link" Match="NavLinkMatch.All">
+                        <div class="btn btn-primary"> Cancel </div>
+                    </NavLink>
+                </Footer>
+            </Card>
+        </Column>
+    </Row>
+</ContentMain>
+
+@code {
+
+    [Parameter]
+    public string PromoPlanNo { get; set; }
+
+    [Parameter]
+    public string InvesmentNo { get; set; }
+
+
+    protected override void OnInitialized()
+    {
+        PromoPlanNo = PromoPlanNo ?? "PD-XXX-20210519-00001-00";
+        InvesmentNo = InvesmentNo ?? "PD-XXX-20210519-00001-00";
+    }
+
+}

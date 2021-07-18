@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>GFCA.Shared</AssemblyName>
+    <RootNamespace>GFCA.Shared</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Models\Commands\" />
+    <Folder Include="Models\Common\" />
+    <Folder Include="Models\Warehouses\" />
+    <Folder Include="Models\Workflows\" />
+    <Folder Include="Models\BusinessParties\" />
+    <Folder Include="Models\Accountants\" />
+    <Folder Include="Models\Documents\" />
+    <Folder Include="Models\Organizations\" />
+    <Folder Include="Models\Sales\" />
+  </ItemGroup>
+</Project>

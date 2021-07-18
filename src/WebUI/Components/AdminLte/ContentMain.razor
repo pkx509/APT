@@ -1,0 +1,15 @@
+﻿@namespace GFCA.WebUI.Components.AdminLte
+<!-- Main content -->
+<div class="content">
+    @ChildContent
+</div>
+<style>
+    .content {
+        padding-top:8px !important;
+    }
+</style>
+<!-- /.content -->
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}

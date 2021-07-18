@@ -1,0 +1,449 @@
+﻿@page "/MyInbox/Documents/FixedContract"
+@page "/MyInbox/Documents/FixedContract/{fixedContractId}"
+
+@using GFCA.WebUI.Pages.Masters.Accountants.CostCenters
+@using GFCA.WebUI.Pages.Masters.Warehouses.Brands
+@using GFCA.WebUI.Pages.Masters.Warehouses.Products
+@using GFCA.WebUI.Pages.Masters.Sales.TradeInvesments
+
+@namespace GFCA.WebUI.Pages.MyInbox
+
+<style>
+    .table {
+        display: table;
+        width: 80%;
+        margin: .5% auto 0;
+        border-collapse: separate;
+        font-weight: 400;
+    }
+
+    .table_row {
+        display: table-row;
+    }
+
+    .table_small {
+        display: table-cell;
+    }
+
+    .table_row > .table_small > .table_cell {
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+
+    @@media screen and (max-width: 1080px) {
+        .table {
+            width: 90%
+        }
+    }
+</style>
+<ContentMain>
+
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+                    <div class="form-group row">
+
+                        <div class="col-sm-4">Fixed contract for FC-0854-20201225-0000@(FixedContractId)</div>
+
+                    </div>
+                </Header>
+                <Body>
+                    <div class="table">
+
+                        <div class="table_row">
+                            <div class="table_small">
+                                <div class="table_cell">Brand</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfDropDownList TValue="string" TItem="BrandDto" PopupHeight="230px" Placeholder="Brand" @bind-Value="@BrandIdSelected" FloatLabelType="FloatLabelType.Never">
+                                        <SfDataManager AdaptorInstance="@typeof(BrandService)" Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                                        <DropDownListEvents TItem="BrandDto" TValue="string" ValueChange="OnBrandChange"></DropDownListEvents>
+                                        <DropDownListFieldSettings Text="BrandName" Value="BrandID"></DropDownListFieldSettings>
+                                        <DropDownListTemplates TItem="BrandDto" Context="context">
+                                            <ItemTemplate>
+                                                @{
+                                                    var model = (context as BrandDto);
+                                                }
+                                                <span>@(model.BrandCode) :: @model.BrandName</span>
+                                            </ItemTemplate>
+                                            <NoRecordsTemplate>
+                                                <span class='norecord'> NO DATA AVAILABLE</span>
+                                            </NoRecordsTemplate>
+                                        </DropDownListTemplates>
+                                    </SfDropDownList>
+                                </div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">Apply to All</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfTextBox ID="txtApplyAll" FloatLabelType="FloatLabelType.Never" Placeholder="Apply to All"></SfTextBox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table_row">
+
+                            <div class="table_small">
+                                <div class="table_cell">Trade Activity</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+
+                                    @*
+                        <SfDropDownList TValue="string" TItem="TradeInvesmentDto" PopupHeight="230px" Placeholder="Trade Invesment Activity" @bind-Value="@TradeInvesmentIdSelected" FloatLabelType="FloatLabelType.Always">
+                            <SfDataManager AdaptorInstance="@typeof(TradeInvesmentService)" Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                            <DropDownListEvents TItem="TradeInvesmentDto" TValue="string" ValueChange="OnTrandeInvesmentChange"></DropDownListEvents>
+                            <DropDownListFieldSettings Text="TradeActivity" Value="TradeInvesmentId"></DropDownListFieldSettings>
+                            <DropDownListTemplates TItem="TradeInvesmentDto" Context="context">
+                                <ItemTemplate>
+                                    @{
+                                        var model = (context as TradeInvesmentDto);
+                                    }
+                                    <span>@(model.TradeInvesmentCode) :: @model.TradeActivity</span>
+                                </ItemTemplate>
+                                <NoRecordsTemplate>
+                                    <span class='norecord'> NO DATA AVAILABLE</span>
+                                </NoRecordsTemplate>
+                            </DropDownListTemplates>
+                        </SfDropDownList>
+                                    *@
+                                    <SfDropDownList TValue="string" TItem="BrandDto" PopupHeight="230px" Placeholder="Trade Activity" @bind-Value="@TradeInvesmentIdSelected" FloatLabelType="FloatLabelType.Never">
+                                        <SfDataManager AdaptorInstance="@typeof(BrandService)" Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                                        <DropDownListEvents TItem="BrandDto" TValue="string" ValueChange="OnBrandChange"></DropDownListEvents>
+                                        <DropDownListFieldSettings Text="BrandName" Value="BrandID"></DropDownListFieldSettings>
+                                        <DropDownListTemplates TItem="BrandDto" Context="context">
+                                            <ItemTemplate>
+                                                @{
+                                                    var model = (context as BrandDto);
+                                                }
+                                                <span>@(model.BrandCode) :: @model.BrandName</span>
+                                            </ItemTemplate>
+                                            <NoRecordsTemplate>
+                                                <span class='norecord'> NO DATA AVAILABLE</span>
+                                            </NoRecordsTemplate>
+                                        </DropDownListTemplates>
+                                    </SfDropDownList>
+
+                                </div>
+                            </div>
+
+                            <div class="table_small">
+                                <div class="table_cell">Category</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+
+                                    <SfDropDownList TValue="string" TItem="BrandDto" PopupHeight="230px" Placeholder="Category" @bind-Value="@BrandIdSelected" FloatLabelType="FloatLabelType.Never">
+                                        <SfDataManager AdaptorInstance="@typeof(BrandService)" Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                                        <DropDownListEvents TItem="BrandDto" TValue="string" ValueChange="OnBrandChange"></DropDownListEvents>
+                                        <DropDownListFieldSettings Text="BrandName" Value="BrandID"></DropDownListFieldSettings>
+                                        <DropDownListTemplates TItem="BrandDto" Context="context">
+                                            <ItemTemplate>
+                                                @{
+                                                    var model = (context as BrandDto);
+                                                }
+                                                <span>@(model.BrandCode) :: @model.BrandName</span>
+                                            </ItemTemplate>
+                                            <NoRecordsTemplate>
+                                                <span class='norecord'> NO DATA AVAILABLE</span>
+                                            </NoRecordsTemplate>
+                                        </DropDownListTemplates>
+                                    </SfDropDownList>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table_row">
+
+                            <div class="table_small">
+                                <div class="table_cell">Date Reference</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfDropDownList TValue="string" TItem="BrandDto" PopupHeight="230px" Placeholder="Date Reference" @bind-Value="@BrandIdSelected" FloatLabelType="FloatLabelType.Never">
+                                        <SfDataManager AdaptorInstance="@typeof(BrandService)" Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                                        <DropDownListEvents TItem="BrandDto" TValue="string" ValueChange="OnBrandChange"></DropDownListEvents>
+                                        <DropDownListFieldSettings Text="BrandName" Value="BrandID"></DropDownListFieldSettings>
+                                        <DropDownListTemplates TItem="BrandDto" Context="context">
+                                            <ItemTemplate>
+                                                @{
+                                                    var model = (context as BrandDto);
+                                                }
+                                                <span>@(model.BrandCode) :: @model.BrandName</span>
+                                            </ItemTemplate>
+                                            <NoRecordsTemplate>
+                                                <span class='norecord'> NO DATA AVAILABLE</span>
+                                            </NoRecordsTemplate>
+                                        </DropDownListTemplates>
+                                    </SfDropDownList>
+                                </div>
+                            </div>
+
+                            <div class="table_small">
+                                <div class="table_cell">UOM</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+
+                                    <SfDropDownList TValue="string" TItem="ProductDto" PopupHeight="230px" Placeholder="UOM" @bind-Value="@ProductIdSelected" FloatLabelType="FloatLabelType.Never">
+                                        <SfDataManager AdaptorInstance="@typeof(ProductService)" Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                                        <DropDownListEvents TItem="ProductDto" TValue="string" ValueChange="OnProductChange"></DropDownListEvents>
+                                        <DropDownListFieldSettings Text="UOM" Value="ProductId"></DropDownListFieldSettings>
+                                        <DropDownListTemplates TItem="ProductDto" Context="context">
+                                            <ItemTemplate>
+                                                @{
+                                                    var model = (context as ProductDto);
+                                                }
+                                                <span>@(model.ProductCode) :: @model.UOM</span>
+                                            </ItemTemplate>
+                                            <NoRecordsTemplate>
+                                                <span class='norecord'> NO DATA AVAILABLE</span>
+                                            </NoRecordsTemplate>
+                                        </DropDownListTemplates>
+                                    </SfDropDownList>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table_row">
+
+                            <div class="table_small">
+                                <div class="table_cell">Cost Center</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+
+                                    <SfDropDownList TValue="string" TItem="CostCenterDto" PopupHeight="230px" Placeholder="Cost Center" @bind-Value="@CostCenterIdSelected" FloatLabelType="FloatLabelType.Never">
+                                        <SfDataManager AdaptorInstance="@typeof(CostCenterService )" Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                                        <DropDownListEvents TItem="CostCenterDto" TValue="string" ValueChange="OnCostCenterChange"></DropDownListEvents>
+                                        <DropDownListFieldSettings Text="CostCenterName" Value="CostCenterId"></DropDownListFieldSettings>
+                                        <DropDownListTemplates TItem="CostCenterDto" Context="context">
+                                            <ItemTemplate>
+                                                @{
+                                                    var model = (context as CostCenterDto);
+                                                }
+                                                <span>@(model.CostCenterCode) :: @model.CostCenterName</span>
+                                            </ItemTemplate>
+                                            <NoRecordsTemplate>
+                                                <span class='norecord'> NO DATA AVAILABLE</span>
+                                            </NoRecordsTemplate>
+                                        </DropDownListTemplates>
+                                    </SfDropDownList>
+
+                                </div>
+                            </div>
+
+                            <div class="table_small">
+                                <div class="table_cell">Description</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfTextBox ID="txtDesc" FloatLabelType="FloatLabelType.Never" Placeholder="Description"></SfTextBox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small">
+                                <hr />
+                            </div>
+                        </div>
+
+                        <div class="table_row">
+
+                            <div class="table_small">
+                                <div class="table_cell">January</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfTextBox ID="txt01" FloatLabelType="FloatLabelType.Never" Placeholder="January"></SfTextBox>
+                                </div>
+                            </div>
+
+                            <div class="table_small">
+                                <div class="table_cell">July</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfTextBox ID="txt07" FloatLabelType="FloatLabelType.Never" Placeholder="July"></SfTextBox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small">
+                                <div class="table_cell">February</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfTextBox ID="txt02" FloatLabelType="FloatLabelType.Never" Placeholder="February"></SfTextBox>
+                                </div>
+                            </div>
+
+                            <div class="table_small">
+                                <div class="table_cell">August</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfTextBox ID="txt08" FloatLabelType="FloatLabelType.Never" Placeholder="August"></SfTextBox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small">
+                                <div class="table_cell">March</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell"><SfTextBox ID="txt03" FloatLabelType="FloatLabelType.Never" Placeholder="March"></SfTextBox></div>
+                            </div>
+
+                            <div class="table_small">
+                                <div class="table_cell">September</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell"><SfTextBox ID="txt09" FloatLabelType="FloatLabelType.Never" Placeholder="September"></SfTextBox></div>
+                            </div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small">
+                                <div class="table_cell">April</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfTextBox ID="txt04" FloatLabelType="FloatLabelType.Never" Placeholder="April"></SfTextBox>
+                                </div>
+                            </div>
+
+                            <div class="table_small">
+                                <div class="table_cell">October</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfTextBox ID="txt10" FloatLabelType="FloatLabelType.Never" Placeholder="October"></SfTextBox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small">
+                                <div class="table_cell">May</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfTextBox ID="txt05" FloatLabelType="FloatLabelType.Never" Placeholder="May"></SfTextBox>
+                                </div>
+                            </div>
+
+                            <div class="table_small">
+                                <div class="table_cell">November</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfTextBox ID="txt11" FloatLabelType="FloatLabelType.Never" Placeholder="November"></SfTextBox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small">
+                                <div class="table_cell">June</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfTextBox ID="txt06" FloatLabelType="FloatLabelType.Never" Placeholder="June"></SfTextBox>
+                                </div>
+                            </div>
+
+                            <div class="table_small">
+                                <div class="table_cell">December</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfTextBox ID="txt12" FloatLabelType="FloatLabelType.Never" Placeholder="December"></SfTextBox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </Body>
+                <Footer>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar groups">
+                                <div class="btn-group mr-2" role="group" aria-label="group">
+                                    @{
+                                        for (int i = 0; i < Items.Length; i++)
+                                        {
+                                            if (i == 0)
+                                            {
+                                                <button type="submit" class="btn btn-primary" value="@(Items[i].ToString())">@(Items[i].ToString())</button>
+                                            }
+                                            else if (i == (Items.Length - 1))
+                                            {
+                                                <button type="submit" class="btn btn-warning" value="@(Items[i].ToString())">@(Items[i].ToString())</button>
+                                            }
+                                            else
+                                            {
+                                                <button type="submit" class="btn btn-info" value="@(Items[i].ToString())">@(Items[i].ToString())</button>
+                                            }
+
+                                        }
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </Footer>
+            </Card>
+        </Column>
+    </Row>
+
+</ContentMain>
+
+<style>
+    hr {
+        border-top: 1px dashed grey;
+    }
+</style>
+
+@code {
+    [Parameter]
+    public string FixedContractId { get; set; }
+
+    public BrandDto BrandSelected { get; set; } = new BrandDto();
+    public CostCenterDto CostCenterSelected { get; set; } = new CostCenterDto();
+    public ProductDto ProductSelected { get; set; } = new ProductDto();
+    public TradeInvesmentDto TradeInvesmentSelected { get; set; } = new TradeInvesmentDto();
+    public string BrandIdSelected = "-1";
+    public string CostCenterIdSelected = "-1";
+    public string ProductIdSelected = "-1";
+    public string TradeInvesmentIdSelected = "-1";
+
+    public string[] Items = new string[] { "Save", "Cancel" };
+
+    public void OnBrandChange(ChangeEventArgs<string, BrandDto> e)
+    {
+        this.BrandSelected = e.ItemData;
+    }
+    public void OnCostCenterChange(ChangeEventArgs<string, CostCenterDto> e)
+    {
+        this.CostCenterSelected = e.ItemData;
+    }
+    public void OnProductChange(ChangeEventArgs<string, ProductDto> e)
+    {
+        this.ProductSelected = e.ItemData;
+    }
+    public void OnTrandeInvesmentChange(ChangeEventArgs<string, TradeInvesmentDto> e)
+    {
+        this.TradeInvesmentSelected = e.ItemData;
+    }
+}

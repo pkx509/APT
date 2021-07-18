@@ -1,0 +1,64 @@
+﻿@page "/Master/Organizations/Employees"
+
+
+@namespace GFCA.WebUI.Pages.Masters.Organizations.Employees
+
+<ContentMain>
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+                    <CardTitle>
+                        <i class="ion ion-clipboard mr-1"></i>
+                        Employee Masters
+                    </CardTitle>
+                </Header>
+                <Body>
+
+                    <SfGrid TValue="EmployeeDto" AllowPaging="true" AllowFiltering="true" AllowSorting="true" Toolbar="@(new string[] { "Add", "Edit", "Delete" })">
+                        <SfDataManager AdaptorInstance="@typeof(EmployeeService)" Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                        <GridEvents OnActionComplete="ActionCompleteHandler" TValue="EmployeeDto"></GridEvents>
+                        <GridFilterSettings Type="Syncfusion.Blazor.Grids.FilterType.Menu"></GridFilterSettings>
+                        <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true" Mode="@EditMode.Dialog" Dialog="DialogParams">
+                            <Template>
+                                @{
+                                    var model = (context as EmployeeDto);
+                                }
+                                <div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtEmployeeCode" @bind-Value="@(model.EmployeeCode)" Enabled="@(EnabledAdd)" FloatLabelType="FloatLabelType.Always" Placeholder="Code"></SfTextBox>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtEmployeeName" @bind-Value="@(model.FirstName)" FloatLabelType="FloatLabelType.Always" Placeholder="Employee"></SfTextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Template>
+                        </GridEditSettings>
+                        <GridColumns>
+                            <GridColumn Field=@nameof(EmployeeDto.EmployeeId) IsPrimaryKey="true" Visible="false" />
+                            <GridColumn Field=@nameof(EmployeeDto.EmployeeCode) HeaderText="Code" TextAlign="@TextAlign.Left" HeaderTextAlign="@TextAlign.Center" Width="90"
+                                        ValidationRules="@(new ValidationRules{ Required=true })"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.CheckBox })"
+                                        ClipMode="ClipMode.EllipsisWithTooltip"></GridColumn>
+                            <GridColumn Field=@nameof(EmployeeDto.FirstName) HeaderText="Name" Width="250"
+                                        ValidationRules="@(new ValidationRules{ Required=true})"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+
+                            <GridColumn Field=@nameof(EmployeeDto.CreatedBy) HeaderText="Created By" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(EmployeeDto.CreatedDate) HeaderText="Created Date" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Menu })"></GridColumn>
+                            <GridColumn Field=@nameof(EmployeeDto.UpdatedBy) HeaderText="Updated By" Width="80"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(EmployeeDto.UpdatedDate) HeaderText="Updated Date" Width="80"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                        </GridColumns>
+                    </SfGrid>
+
+                </Body>
+            </Card>
+        </Column>
+    </Row>
+</ContentMain>

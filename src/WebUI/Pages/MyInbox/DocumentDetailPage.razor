@@ -1,0 +1,199 @@
+﻿@page "/MyInbox/BudgetDetail"
+
+@using Syncfusion.Blazor.Data
+@using Syncfusion.Blazor.Grids
+@using Syncfusion.Blazor.Popups
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.DropDowns
+@using Syncfusion.Blazor.Spinner
+@using GFCA.Shared.Models.Dto
+ 
+@namespace GFCA.WebUI.Pages.MyInbox
+
+<ContentMain>
+
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+                    <div class="form-group row">
+
+                        <div class="col-sm-4">Budget Planning for BG-0854-20151225-00001-00</div>
+
+                    </div>
+                </Header>
+                <Body>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Total Sale Target (THB)</label>
+                        <div class="col-sm-4">120,000</div>
+
+                        <label class="col-sm-2 col-form-label">Total Sale Target (THB)</label>
+                        <div class="col-sm-4">120,000</div>
+                    </div>
+                </Body>
+                <Footer>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>Creator</td>
+                                <td>Requestor</td>
+                                <td>Client</td>
+                                <td>Status</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Creator 1</td>
+                                <td>Requestor 1</td>
+                                <td>Client 1</td>
+                                <td>Status 1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </Footer>
+            </Card>
+        </Column>
+    </Row>
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+
+                <Body>
+
+                    <div class="form-group row">
+                        <label for="channel" class="col-sm-2 col-form-label">Channel</label>
+                        <div class="col-sm-5">
+                            <SfDropDownList TItem="Models.SAP.ProductMaster" TValue="string" PopupHeight="230px" Placeholder=" -- Select -- ">
+                                <DropDownListFieldSettings Text="Text" Value="ID"></DropDownListFieldSettings>
+                            </SfDropDownList>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="channel" class="col-sm-2 col-form-label">Customer</label>
+                        <div class="col-sm-5">
+                            <SfDropDownList TItem="Models.SAP.ProductMaster" TValue="string" PopupHeight="230px" Placeholder=" -- Select -- ">
+                                <DropDownListFieldSettings Text="Text" Value="ID"></DropDownListFieldSettings>
+                            </SfDropDownList>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="channel" class="col-sm-2 col-form-label">Brand</label>
+                        <div class="col-sm-5">
+                            <SfDropDownList TItem="Models.SAP.ProductMaster" TValue="string" PopupHeight="230px" Placeholder=" -- Select -- ">
+                                <DropDownListFieldSettings Text="Text" Value="ID"></DropDownListFieldSettings>
+                            </SfDropDownList>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div class="form-group row">
+                        <label for="channel" class="col-sm-2 col-form-label">Actual Last Year (THB)</label>
+                        <div class="col-sm-5">
+                            <SfTextBox Placeholder="Actual Last Year (THB)"></SfTextBox>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="channel" class="col-sm-2 col-form-label">Target Current Year (THB)</label>
+                        <div class="col-sm-5">
+                            <SfTextBox Placeholder="Target Current Year (THB)"></SfTextBox>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="channel" class="col-sm-2 col-form-label">Type</label>
+                        <div class="col-sm-5">
+                            <SfDropDownList TItem="Models.SAP.ProductMaster" TValue="string" PopupHeight="230px" Placeholder=" -- Select -- ">
+                                <DropDownListFieldSettings Text="Text" Value="ID"></DropDownListFieldSettings>
+                            </SfDropDownList>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="channel" class="col-sm-2 col-form-label">Cost</label>
+                        <div class="col-sm-5">
+                            <SfTextBox Placeholder="Cost"></SfTextBox>
+                        </div>
+                    </div>
+
+
+
+                </Body>
+                <Footer>
+                    <SfButton IsPrimary="true">Save</SfButton>
+                    <SfButton IsPrimary="false">Cancel</SfButton>
+                </Footer>
+            </Card>
+        </Column>
+    </Row>
+
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+                    <div>
+                        Workflow & History
+                    </div>
+                </Header>
+                <Body>
+                    <SfGrid TValue="DocumentDto" AllowPaging="false" AllowFiltering="false" AllowSorting="false" )">
+                        <SfDataManager Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                        <GridEditSettings AllowAdding="false" AllowEditing="false" AllowDeleting="false" Mode="@EditMode.Normal"></GridEditSettings>
+
+                        <GridColumns>
+                            <GridColumn Field=@nameof(DocumentDto.DocumentId) HeaderText="DocumentId" IsPrimaryKey="true" TextAlign="@TextAlign.Center" HeaderTextAlign="@TextAlign.Center" Width="140"
+                                        ValidationRules="@(new ValidationRules{ Required=true, Number=true})"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.CheckBox })"
+                                        ClipMode="ClipMode.EllipsisWithTooltip"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.ReferenceNo) HeaderText="DocumentNo" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.DocumentTypeId) HeaderText="DocumentType" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Menu })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.DocumentYear) HeaderText="DocumentYear" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.DocumentMonth) HeaderText="DocumentMonth" Width="150"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.ClientCode) HeaderText="ClientNo" Width="150" Format="N0"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.ClientName) HeaderText="ClientName" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.CustomerCode) HeaderText="CustomerNo" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.CustomerName) HeaderText="CustomerName" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.TotalSale) HeaderText="TotalSale" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.TotalInvestment) HeaderText="TotalInvestment" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+
+                            <GridColumn Field=@nameof(DocumentDto.CurrentState) HeaderText="Status" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+
+                            <GridColumn Field=@nameof(DocumentDto.CreatedBy) HeaderText="CreatedBy" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.CreatedDate) HeaderText="CreatedDate" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.UpdatedBy) HeaderText="UpdatedBy" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.UpdatedDate) HeaderText="UpdatedDate" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                        </GridColumns>
+                    </SfGrid>
+                </Body>
+            </Card>
+        </Column>
+    </Row>
+</ContentMain>
+
+
+<style>
+    .form-group {
+        margin-bottom: .25rem !important;
+    }
+
+    label:not(.form-check-label):not(.custom-file-label) {
+        font-weight: 500 !important;
+    }
+</style>
+
+

@@ -1,0 +1,63 @@
+﻿@page "/Master/Warehouses/Brands"
+
+@namespace GFCA.WebUI.Pages.Masters.Warehouses.Brands
+
+<ContentMain>
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+                    <CardTitle>
+                        <i class="ion ion-clipboard mr-1"></i>
+                        Brand Masters
+                    </CardTitle>
+                </Header>
+                <Body>
+
+                    <SfGrid TValue="BrandDto" AllowPaging="true" AllowFiltering="true" AllowSorting="true" Toolbar="@(new string[] { "Add", "Edit", "Delete" })">
+                        <SfDataManager AdaptorInstance="@typeof(BrandService)" Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                        <GridEvents OnActionComplete="ActionCompleteHandler" TValue="BrandDto"></GridEvents>
+                        <GridFilterSettings Type="Syncfusion.Blazor.Grids.FilterType.Menu"></GridFilterSettings>
+                        <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true" Mode="@EditMode.Dialog" Dialog="DialogParams">
+                            <Template>
+                                @{
+                                    var model = (context as BrandDto);
+                                }
+                                <div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtBrandCode" @bind-Value="@(model.BrandCode)" Enabled="@(EnabledAdd)" FloatLabelType="FloatLabelType.Always" Placeholder="Code"></SfTextBox>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtBrandName" @bind-Value="@(model.BrandName)" FloatLabelType="FloatLabelType.Always" Placeholder="Brand"></SfTextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Template>
+                        </GridEditSettings>
+                        <GridColumns>
+                            <GridColumn Field=@nameof(BrandDto.BrandId) IsPrimaryKey="true" Visible="false" />
+                            <GridColumn Field=@nameof(BrandDto.BrandCode) HeaderText="Code" TextAlign="@TextAlign.Left" HeaderTextAlign="@TextAlign.Center" Width="90"
+                                        ValidationRules="@(new ValidationRules{ Required=true })"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.CheckBox })"
+                                        ClipMode="ClipMode.EllipsisWithTooltip"></GridColumn>
+                            <GridColumn Field=@nameof(BrandDto.BrandName) HeaderText="Name" Width="250"
+                                        ValidationRules="@(new ValidationRules{ Required=true})"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+
+                            <GridColumn Field=@nameof(BrandDto.CreatedBy) HeaderText="Created By" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(BrandDto.CreatedDate) HeaderText="Created Date" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Menu })"></GridColumn>
+                            <GridColumn Field=@nameof(BrandDto.UpdatedBy) HeaderText="Updated By" Width="80"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(BrandDto.UpdatedDate) HeaderText="Updated Date" Width="80"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                        </GridColumns>
+                    </SfGrid>
+
+                </Body>
+            </Card>
+        </Column>
+    </Row>
+</ContentMain>

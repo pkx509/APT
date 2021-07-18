@@ -1,0 +1,8 @@
+﻿@namespace GFCA.WebUI.Components.AdminLte
+<div class="sidebar">
+    @ChildContent
+</div>
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}

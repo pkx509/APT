@@ -1,0 +1,89 @@
+﻿@page "/"
+@using Syncfusion.Blazor.Data
+@using Syncfusion.Blazor.Grids
+@using Syncfusion.Blazor.Popups
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Charts
+@using Syncfusion.Blazor.Spinner
+@namespace GFCA.WebUI.Pages
+@using GFCA.WebUI.Models
+@using MvvmBlazor.Components
+@inherits MvvmComponentBase<GFCA.WebUI.ViewModels.IndexViewModel>
+
+<ContentMain>
+    <Row>
+        <Column Classes="@col.md._3">
+            <NavLink href="/MyInbox/Draft">
+                <InfoBox IconBackgroundColor="@Color.Danger" Icon="far fa-envelope">
+                    <Title>My Draft</Title>
+                    <Value>12/100</Value>
+                </InfoBox>
+            </NavLink>
+        </Column>
+        <Column Classes="@col.md._3">
+            <NavLink href="/MyInbox/PendingRequest">
+                <InfoBox IconBackgroundColor="@Color.Warning" Icon="fas fa-drafting-compass">
+                    <Title>My Pending Request</Title>
+                    <Value>11/100</Value>
+                </InfoBox>
+            </NavLink>
+        </Column>
+        <Column Classes="@col.md._3">
+            <NavLink href="/MyInbox/PendingApproval">
+                <InfoBox IconBackgroundColor="@Color.Success" Icon="far fa-flag">
+                    <Title>My Pending Approval</Title>
+                    <Value>13/100</Value>
+                </InfoBox>
+            </NavLink>
+        </Column>
+        <Column Classes="@col.md._3">
+            <NavLink href="/MyInbox/Completed">
+                <InfoBox Gradient="@Gradient.Gradient" IconBackgroundColor="@Color.Info" Icon="fas fa-history">
+                    <Title>My Completed Request</Title>
+                    <Value>1/100</Value>
+                </InfoBox>
+            </NavLink>
+        </Column>
+    </Row>
+
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+                    <CardTitle>
+                        <i class="ion ion-clipboard mr-1"></i>
+                        Sale Chart @Bind(x => x.DateTime)
+                    </CardTitle>
+                </Header>
+                <Body>
+
+                    
+
+                </Body>
+                <Footer>
+                    As of 
+                </Footer>
+            </Card>
+        </Column>
+    </Row>
+</ContentMain>
+
+<style>
+
+    .stockchartloader {
+        border: 6px solid #f3f3f3;
+        border-top: 6px solid #7a0fff;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 46%;
+        left: 46%;
+        border-radius: 50%;
+        -webkit-animation: loader 2s linear infinite;
+        animation: loader 2s linear infinite;
+    }
+
+    .stockchartdiv {
+        visibility: hidden;
+    }
+</style>

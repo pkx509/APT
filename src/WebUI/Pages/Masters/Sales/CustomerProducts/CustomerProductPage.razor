@@ -1,0 +1,123 @@
+@page "/Master/Sales/CustomerProducts"
+
+@namespace GFCA.WebUI.Pages.Masters.Sales.CustomerProducts
+
+<ContentMain>
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+                    <CardTitle>
+                        <i class="ion ion-clipboard mr-1"></i>
+                        Customer Product Masters
+                    </CardTitle>
+                </Header>
+                <Body>
+
+                    <SfGrid TValue="CustomerProductDto" AllowPaging="true" AllowFiltering="true" AllowSorting="true" Toolbar="@(new string[] { "Add", "Edit", "Delete" })">
+                        <SfDataManager AdaptorInstance="@typeof(CustomerProductService)" Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                        <GridEvents OnActionComplete="ActionCompleteHandler" TValue="CustomerProductDto"></GridEvents>
+                        <GridFilterSettings Type="Syncfusion.Blazor.Grids.FilterType.Menu"></GridFilterSettings>
+                        <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true" Mode="@EditMode.Dialog" Dialog="DialogParams">
+                            <Template>
+                                @{
+                                    var model = (context as CustomerProductDto);
+                                }
+                                <div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtCustomerCode" @bind-Value="@(model.CustomerCode)" Enabled="@(EnabledAdd)" FloatLabelType="FloatLabelType.Always" Placeholder="CustomerCode"></SfTextBox>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtCustomerName" @bind-Value="@(model.CustomerName)" FloatLabelType="FloatLabelType.Always" Placeholder="CustomerName"></SfTextBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtCustMaterial" @bind-Value="@(model.CustMaterial)" FloatLabelType="FloatLabelType.Always" Placeholder="CustMaterial"></SfTextBox>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtCustUOM" @bind-Value="@(model.CustUOM)" FloatLabelType="FloatLabelType.Always" Placeholder="CustUOM"></SfTextBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtMaterialCode" @bind-Value="@(model.MaterialCode)" FloatLabelType="FloatLabelType.Always" Placeholder="MaterialCode"></SfTextBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtMaterialDescription" @bind-Value="@(model.MaterialDescription)" FloatLabelType="FloatLabelType.Always" Placeholder="MaterialDescription"></SfTextBox>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtSAPUOM" @bind-Value="@(model.SAPUOM)" FloatLabelType="FloatLabelType.Always" Placeholder="SAPUOM"></SfTextBox>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtSaleOrg" @bind-Value="@(model.SaleOrg)" FloatLabelType="FloatLabelType.Always" Placeholder="SaleOrg"></SfTextBox>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtChannel" @bind-Value="@(model.Channel)" FloatLabelType="FloatLabelType.Always" Placeholder="Channel"></SfTextBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtDivision" @bind-Value="@(model.Division)" FloatLabelType="FloatLabelType.Always" Placeholder="Division"></SfTextBox>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <SfNumericTextBox ID="txtCustPack" @bind-Value="@(model.CustPack)" FloatLabelType="FloatLabelType.Always" Placeholder="CustPack"></SfNumericTextBox>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <SfNumericTextBox ID="txtDHPack" @bind-Value="@(model.DHPack)" FloatLabelType="FloatLabelType.Always" Placeholder="DHPack"></SfNumericTextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Template>
+                        </GridEditSettings>
+                        <GridColumns>
+                            <GridColumn Field=@nameof(CustomerProductDto.CustomerCode) HeaderText="CustomerCode" IsPrimaryKey="true" TextAlign="@TextAlign.Center" HeaderTextAlign="@TextAlign.Center" Width="140"
+                                        ValidationRules="@(new ValidationRules{ Required=true, Number=true})"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.CheckBox })"
+                                        ClipMode="ClipMode.EllipsisWithTooltip"></GridColumn>
+                            <GridColumn Field=@nameof(CustomerProductDto.CustomerName) HeaderText="CustomerName" Width="150"
+                                        ValidationRules="@(new ValidationRules{ Required=true})"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+
+                            <GridColumn Field=@nameof(CustomerProductDto.CustMaterial) HeaderText="CustMaterial" Width="150"
+                                        ValidationRules="@(new ValidationRules{ Required=true})"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(CustomerProductDto.CustUOM) HeaderText="CustUOM" Width="150"
+                                        ValidationRules="@(new ValidationRules{ Required=true})"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(CustomerProductDto.MaterialCode) HeaderText="MaterialCode" Width="150"
+                                        ValidationRules="@(new ValidationRules{ Required=true})"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(CustomerProductDto.MaterialDescription) HeaderText="Mat.Desc" Width="150"
+                                        ValidationRules="@(new ValidationRules{ Required=true})"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(CustomerProductDto.SAPUOM) HeaderText="SAPUOM" Width="150"
+                                        ValidationRules="@(new ValidationRules{ Required=true})"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(CustomerProductDto.SaleOrg) HeaderText="SaleOrg" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(CustomerProductDto.Channel) HeaderText="Channel" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Menu })"></GridColumn>
+                            <GridColumn Field=@nameof(CustomerProductDto.Division) HeaderText="Division" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(CustomerProductDto.CustPack) HeaderText="CustPack" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(CustomerProductDto.DHPack) HeaderText="DHPack" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                        </GridColumns>
+                    </SfGrid>
+
+                </Body>
+            </Card>
+        </Column>
+    </Row>
+</ContentMain>

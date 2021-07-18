@@ -1,0 +1,15 @@
+﻿@namespace GFCA.WebUI.Components.AdminLte
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-light-light elevation-4">
+    @ChildContent
+</aside>
+<style>
+    .main-sidebar {
+        height: 100vh !important;
+        overflow-y: hidden !important;
+    }
+</style>
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}

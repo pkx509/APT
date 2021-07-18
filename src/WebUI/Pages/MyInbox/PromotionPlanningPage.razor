@@ -1,0 +1,561 @@
+﻿@page "/MyInbox/Documents/PromotionPlanning/{PromoPlanId}"
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.DropDowns;
+@using Syncfusion.Blazor.Navigations
+
+@namespace GFCA.WebUI.Pages.MyInbox.Documents
+
+@inject NavigationManager nav
+<style>
+    div.table {
+        display: table;
+        width: 80%;
+        margin: .5% auto 0;
+        border-collapse: separate;
+        font-weight: 400;
+    }
+
+    .table_row {
+        display: table-row;
+    }
+
+    .table_small {
+        display: table-cell;
+    }
+
+    .table_row > .table_small > .table_cell {
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+
+    @@media screen and (max-width: 1080px) {
+        .table {
+            width: 90%
+        }
+    }
+</style>
+<ContentMain>
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+
+                    <div class="table_row">
+                        <div class="table_small">
+                            <div class="table_cell">Promotion Planing for @PromoPlanId</div>
+                        </div>
+                        <div class="table_small">
+                            <div class="table_cell">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                        </div>
+                        <div class="table_small">
+                            <div class="table_cell">
+                                <SfButton IsPrimary="true">Submit</SfButton>
+                                <SfButton IsPrimary="true">Confirm</SfButton>
+                                <SfButton>Discard</SfButton>
+                            </div>
+                        </div>
+                    </div>
+                </Header>
+                <Body>
+
+                    <div class="table">
+
+                        <div class="table_row">
+
+                            <div class="table_small"><div class="table_cell">Creator</div></div>
+                            <div class="table_small"><div class="table_cell">Requestor</div></div>
+                            <div class="table_small"><div class="table_cell">Brand</div></div>
+                            <div class="table_small"><div class="table_cell">Customer</div></div>
+                            <div class="table_small"><div class="table_cell">Status</div></div>
+
+                        </div>
+                        <div class="table_row">
+
+                            <div class="table_small"><div class="table_cell">CDM: OperationName1</div></div>
+                            <div class="table_small"><div class="table_cell">CDM: OperationName1</div></div>
+                            <div class="table_small"><div class="table_cell">Brand1 :</div></div>
+                            <div class="table_small"><div class="table_cell">Customer1</div></div>
+                            <div class="table_small"><div class="table_cell">Approved</div></div>
+
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="table">
+                        <div class="table_row">
+
+                            <div class="table_small"><div class="table_cell">Total Sale Target (THB) :</div></div>
+                            <div class="table_small"><div class="table_cell">548,108.30</div></div>
+                            <div class="table_small"><div class="table_cell">Total Investment (THB) :</div></div>
+                            <div class="table_small"><div class="table_cell">50,000.00</div></div>
+                            <div class="table_small"><div class="table_cell">Ratio (%)</div></div>
+                            <div class="table_small"><div class="table_cell">9.12</div></div>
+
+                        </div>
+                    </div>
+                    <SfTab Height="500px" CssClass="tab-adaptive" HeaderPlacement="HeaderPosition.Top" OverflowMode="OverflowMode.Scrollable">
+                        <TabItems>
+                            <TabItem>
+                                <ChildContent>
+                                    <TabHeader Text="Overview">
+                                    </TabHeader>
+                                </ChildContent>
+                                <ContentTemplate>
+
+                                    <div class="card" style="margin-top:10px;">
+                                        <div class="card-header">Key Infomation</div>
+                                        <div class="card-body">
+
+                                            <div class="table">
+                                                <div class="table_row">
+
+                                                    <div class="table_small"><div class="table_cell_th">Channel :</div></div>
+                                                    <div class="table_small"><div class="table_cell">MT - Modern Trade</div></div>
+                                                    <div class="table_small"><div class="table_cell_th">Total Estimated Sales (THB) :</div></div>
+                                                    <div class="table_small"><div class="table_cell">358,880.00</div></div>
+
+                                                </div>
+
+                                                <div class="table_row">
+
+                                                    <div class="table_small"><div class="table_cell_th">Customer Segment :</div></div>
+                                                    <div class="table_small"><div class="table_cell">&nbsp;</div></div>
+                                                    <div class="table_small"><div class="table_cell_th">Total Estimate Invesment (THB) :</div></div>
+                                                    <div class="table_small"><div class="table_cell">100,000.00</div></div>
+
+                                                </div>
+
+                                                <div class="table_row">
+
+                                                    <div class="table_small"><div class="table_cell_th">Attachment (Approver) :</div></div>
+                                                    <div class="table_small"><div class="table_cell">&nbsp;</div></div>
+                                                    <div class="table_small"><div class="table_cell_th">Sale vs Invesment (%) :</div></div>
+                                                    <div class="table_small"><div class="table_cell">27.86</div></div>
+
+                                                </div>
+
+                                                <div class="table_row">
+
+                                                    <div class="table_small"><div class="table_cell_th">Attachment :</div></div>
+                                                    <div class="table_small"><div class="table_cell">file-xxxx.csv</div></div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="card">
+                                        <div class="card-header">Promotion Overview</div>
+                                        <div class="card-body">
+
+                                            <div class="table">
+                                                <div class="table_row">
+
+                                                    <div class="table_small"><div class="table_cell_th">Promo Name :</div></div>
+                                                    <div class="table_small"><div class="table_cell">WK2021-2022 (2get1 60g.) 1-31.1.21</div></div>
+
+                                                </div>
+
+                                                <div class="table_row">
+
+                                                    <div class="table_small"><div class="table_cell_th">Promo Start Date :</div></div>
+                                                    <div class="table_small"><div class="table_cell">2021-01-01</div></div>
+                                                    <div class="table_small"><div class="table_cell_th">Buying Start Date :</div></div>
+                                                    <div class="table_small"><div class="table_cell">2021-01-01</div></div>
+
+                                                </div>
+
+                                                <div class="table_row">
+
+                                                    <div class="table_small"><div class="table_cell_th">Promo End Date :</div></div>
+                                                    <div class="table_small"><div class="table_cell">2021-01-31</div></div>
+                                                    <div class="table_small"><div class="table_cell_th">Buying End Date :</div></div>
+                                                    <div class="table_small"><div class="table_cell">2021-01-31</div></div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                </ContentTemplate>
+                            </TabItem>
+                            <TabItem>
+                                <ChildContent>
+                                    <TabHeader Text="Detail"></TabHeader>
+                                </ChildContent>
+                                <ContentTemplate>
+                                    <div class="table">
+                                        <div class="table_row">
+
+                                            <div class="table_small"><div class="table_cell">Promotion Group</div></div>
+                                            <div class="table_small">
+                                                <div class="table_cell">
+                                                    <SfComboBox TValue="int?"
+                                                                TItem="WorkflowDto"
+                                                                FloatLabelType="FloatLabelType.Never"
+                                                                Placeholder="Select a Promotion Group fileter"
+                                                                CssClass="e-multi-column"
+                                                                AllowFiltering="true"
+                                                                PopupHeight="300px">
+                                                        <ComboBoxFieldSettings Text="WorkflowName" Value="WorkflowId"></ComboBoxFieldSettings>
+
+                                                    </SfComboBox>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <SfTab Height="250px" CssClass="tab-adaptive" HeaderPlacement="HeaderPosition.Top" OverflowMode="OverflowMode.Extended">
+                                        <TabItems>
+                                            <TabItem>
+                                                <ChildContent>
+                                                    <TabHeader Text="Sale"></TabHeader>
+                                                </ChildContent>
+                                                <ContentTemplate>
+
+                                                    <div class="e-control e-toolbar e-lib e-keyboard" role="toolbar" aria-orientation="horizontal" aria-haspopup="false" tabindex="0" style="height: auto; width: auto;">
+                                                        <div class="e-toolbar-items">
+                                                            <div class="e-toolbar-item" aria-disabled="false" id="sfgridzqkntqkcpif_add" data-index="0" title="Add" padding-left="4px">
+                                                                <button class="e-control e-btn e-lib e-tbar-btn e-tbtn-txt" type="button" tabindex="-1" style="width:auto"><span class="e-add e-icons e-btn-icon e-icon-left"></span><span class="e-tbar-btn-text">Export</span></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Product</th>
+                                                                <th>LTP/CP<br />(Ex-VAT)<br />(THB)</th>
+                                                                <th>Norm. Discount<br />(%)</th>
+                                                                <th>Norm. GP<br />(%)</th>
+                                                                <th>Norm. Shelf<br />(UOM/THB)</th>
+                                                                <th>Promo. Discount<br />(%)</th>
+                                                                <th>Promo. GP<br />(%)</th>
+                                                                <th>Promo. Price<br />(UOM/THB)</th>
+                                                                <th>Deal Guide line<br />(THB)</th>
+                                                                <th>Net-Into-Store<br />(THB)</th>
+                                                                <th>Average Sales<br />(THB)</th>
+                                                                <th>Average<br />(Volume/CV)</th>
+                                                                <th>Sales QTY.<br />(CV)</th>
+                                                                <th>Sales Value<br />(Ex-VAT)<br />(CV)</th>
+                                                                <th>Sales UOM</th>
+                                                                <th>Discount Type</th>
+                                                                <th>Updated By</th>
+                                                                <th>Updated Date</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>100001 Product1</td>
+                                                                <td>1,121.05</td>
+                                                                <td>8.00</td>
+                                                                <td>18.52</td>
+                                                                <td>119.00</td>
+                                                                <td>20.00</td>
+                                                                <td>18.52</td>
+                                                                <td>99.00</td>
+                                                                <td>0.00</td>
+                                                                <td>8.25</td>
+                                                                <td>1,167.88</td>
+                                                                <td>1.07</td>
+                                                                <td>75.00</td>
+                                                                <td>80,056.39</td>
+                                                                <td>CV</td>
+                                                                <td>Value</td>
+                                                                <td>System</td>
+                                                                <td>01 Mar 2021</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>100002 Product2</td>
+                                                                <td>1,121.05</td>
+                                                                <td>8.00</td>
+                                                                <td>18.52</td>
+                                                                <td>119.00</td>
+                                                                <td>20.00</td>
+                                                                <td>18.52</td>
+                                                                <td>99.00</td>
+                                                                <td>0.00</td>
+                                                                <td>8.25</td>
+                                                                <td>1,167.88</td>
+                                                                <td>1.07</td>
+                                                                <td>75.00</td>
+                                                                <td>80,056.39</td>
+                                                                <td>CV</td>
+                                                                <td>Value</td>
+                                                                <td>System</td>
+                                                                <td>01 Mar 2021</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>100003 Product3</td>
+                                                                <td>1,121.05</td>
+                                                                <td>8.00</td>
+                                                                <td>18.52</td>
+                                                                <td>119.00</td>
+                                                                <td>20.00</td>
+                                                                <td>18.52</td>
+                                                                <td>99.00</td>
+                                                                <td>0.00</td>
+                                                                <td>8.25</td>
+                                                                <td>1,167.88</td>
+                                                                <td>1.07</td>
+                                                                <td>75.00</td>
+                                                                <td>80,056.39</td>
+                                                                <td>CV</td>
+                                                                <td>Value</td>
+                                                                <td>System</td>
+                                                                <td>01 Mar 2021</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>100004 Product4</td>
+                                                                <td>1,121.05</td>
+                                                                <td>8.00</td>
+                                                                <td>18.52</td>
+                                                                <td>119.00</td>
+                                                                <td>20.00</td>
+                                                                <td>18.52</td>
+                                                                <td>99.00</td>
+                                                                <td>0.00</td>
+                                                                <td>8.25</td>
+                                                                <td>1,167.88</td>
+                                                                <td>1.07</td>
+                                                                <td>75.00</td>
+                                                                <td>80,056.39</td>
+                                                                <td>CV</td>
+                                                                <td>Value</td>
+                                                                <td>System</td>
+                                                                <td>01 Mar 2021</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>100005 Product5</td>
+                                                                <td>1,121.05</td>
+                                                                <td>8.00</td>
+                                                                <td>18.52</td>
+                                                                <td>119.00</td>
+                                                                <td>20.00</td>
+                                                                <td>18.52</td>
+                                                                <td>99.00</td>
+                                                                <td>0.00</td>
+                                                                <td>8.25</td>
+                                                                <td>1,167.88</td>
+                                                                <td>1.07</td>
+                                                                <td>75.00</td>
+                                                                <td>80,056.39</td>
+                                                                <td>CV</td>
+                                                                <td>Value</td>
+                                                                <td>System</td>
+                                                                <td>01 Mar 2021</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </ContentTemplate>
+                                            </TabItem>
+                                            <TabItem>
+                                                <ChildContent>
+                                                    <TabHeader Text="Invesment"></TabHeader>
+                                                </ChildContent>
+                                                <ContentTemplate>
+
+                                                    <div class="e-control e-toolbar e-lib e-keyboard" role="toolbar" aria-orientation="horizontal" aria-haspopup="false" tabindex="0" style="height: auto; width: auto;">
+                                                        <div class="e-toolbar-items">
+                                                            <div class="e-toolbar-item" aria-disabled="false" data-index="0" title="Add" padding-left="4px">
+                                                                <button class="e-control e-btn e-lib e-tbar-btn e-tbtn-txt" type="button" tabindex="-1" style="width:auto"><span class="e-add e-icons e-btn-icon e-icon-left"></span><span class="e-tbar-btn-text">Add</span></button>
+                                                            </div>
+                                                            <div class="e-toolbar-item e-overlay" aria-disabled="true" data-index="1" title="Edit">
+                                                                <button class="e-control e-btn e-lib e-tbar-btn e-tbtn-txt" type="button" tabindex="-1" style="width:auto"><span class="e-edit e-icons e-btn-icon e-icon-left"></span><span class="e-tbar-btn-text">Edit</span></button>
+                                                            </div>
+                                                            <div class="e-toolbar-item e-overlay" aria-disabled="true" data-index="2" title="Delete">
+                                                                <button class="e-control e-btn e-lib e-tbar-btn e-tbtn-txt" type="button" tabindex="-1" style="width:auto"><span class="e-delete e-icons e-btn-icon e-icon-left"></span><span class="e-tbar-btn-text">Delete</span></button>
+                                                            </div>
+                                                            <div class="e-toolbar-item e-overlay" aria-disabled="true" data-index="2" title="Copy">
+                                                                <button class="e-control e-btn e-lib e-tbar-btn e-tbtn-txt" type="button" tabindex="-1" style="width:auto"><span class="e-copy e-icons e-btn-icon e-icon-left"></span><span class="e-tbar-btn-text">Copy</span></button>
+                                                            </div>
+                                                            <div class="e-toolbar-item e-overlay" aria-disabled="true" data-index="2" title="export">
+                                                                <button class="e-control e-btn e-lib e-tbar-btn e-tbtn-txt" type="button" tabindex="-1" style="width:auto"><span class="e-export e-icons e-btn-icon e-icon-left"></span><span class="e-tbar-btn-text">Export</span></button>
+                                                            </div>
+                                                            <div class="e-toolbar-item e-overlay" aria-disabled="true" data-index="2" title="mass create">
+                                                                <button class="e-control e-btn e-lib e-tbar-btn e-tbtn-txt" type="button" tabindex="-1" style="width:auto"><span class="e-thunder e-icons e-btn-icon e-icon-left"></span><span class="e-tbar-btn-text">Mass create</span></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Trade Activity</th>
+                                                                <th>Product</th>
+                                                                <th>Input Type</th>
+                                                                <th>Value</th>
+                                                                <th>Investment Amount (THB)</th>
+                                                                <th>Other Activity</th>
+                                                                <th>Other Amount (THB)</th>
+                                                                <th>Combined Other Activity</th>
+                                                                <th>Incremental Sale vs Investment</th>
+                                                                <th>GL Account</th>
+                                                                <th>Brand</th>
+                                                                <th>Cost Center</th>
+                                                                <th>Source of fund</th>
+                                                                <th>Amount<br />(THB)</th>
+                                                                <th>Cost Center 2</th>
+                                                                <th>Source of fund 2</th>
+                                                                <th>Amount 2<br />(THB)</th>
+                                                                <th>Remark</th>
+                                                                <th>Created By</th>
+                                                                <th>Created Date</th>
+                                                                <th>Updated By</th>
+                                                                <th>Updated Date</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Coupon/Stamp/Handling Fee</td>
+                                                                <td>100207798 - CFO 1kgx12 S/P TH</td>
+                                                                <td>Value</td>
+                                                                <td>20,000.00</td>
+                                                                <td>20,000.00</td>
+                                                                <td>ค่าหัวชั้น</td>
+                                                                <td>50,000.00</td>
+                                                                <td>Yes</td>
+                                                                <td>20.06</td>
+                                                                <td>66000000 - OWN A&P</td>
+                                                                <td>TIC - TWININGS</td>
+                                                                
+                                                                <td>8812ZA0030 - OVALTINE-S-NUTRITION</td>
+                                                                <td>Pre-Finance</td>
+                                                                <td>0.00</td>
+                                                                <td>&nbsp;</td>
+                                                                <td>&nbsp;</td>
+                                                                <td>0.00</td>
+                                                                <td>ทำโปรโมชั่นเพื่อทำการ Support แก้ไขยอดช่วง Covid 19 ระบายสินค้าให้กับทาง 7-11</td>
+                                                                <td>System</td>
+                                                                <td>01 Mar 2021</td>
+                                                                <td>&nbsp;</td>
+                                                                <td>&nbsp;</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </ContentTemplate>
+                                            </TabItem>
+                                        </TabItems>
+                                    </SfTab>
+                                </ContentTemplate>
+                            </TabItem>
+                            <TabItem>
+                                <ChildContent>
+                                    <TabHeader Text="Summary"></TabHeader>
+                                </ChildContent>
+                                <ContentTemplate>
+                                    in construction, no available
+                                </ContentTemplate>
+                            </TabItem>
+                            <TabItem>
+                                <ChildContent>
+                                    <TabHeader Text="Actual"></TabHeader>
+                                </ChildContent>
+                                <ContentTemplate>
+                                    in construction, no available
+                                </ContentTemplate>
+                            </TabItem>
+                            <TabItem>
+                                <ChildContent>
+                                    <TabHeader Text="Events"></TabHeader>
+                                </ChildContent>
+                                <ContentTemplate>
+                                    in construction, no available
+                                </ContentTemplate>
+                            </TabItem>
+                            <TabItem>
+                                <ChildContent>
+                                    <TabHeader Text="Adjustment History"></TabHeader>
+                                </ChildContent>
+                                <ContentTemplate>
+                                    Adjustment History
+                                </ContentTemplate>
+                            </TabItem>
+                            <TabItem>
+                                <ChildContent>
+                                    <TabHeader Text="Audit"></TabHeader>
+                                </ChildContent>
+                                <ContentTemplate>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>State</th>
+                                                <th>Time</th>
+                                                <th>Actor</th>
+                                                <th>Comment</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Submitted</td>
+                                                <td>HH:mm:ss</td>
+                                                <td>Mr. A1</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Confirmed</td>
+                                                <td>HH:mm:ss</td>
+                                                <td>Mr. A1</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>MD Approved</td>
+                                                <td>HH:mm:ss</td>
+                                                <td>Mr. B1</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Accounttant</td>
+                                                <td>HH:mm:ss</td>
+                                                <td>Mr. C1</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Reviewer</td>
+                                                <td>HH:mm:ss</td>
+                                                <td>Mr. CEO</td>
+                                                <td>Reject reson blah blah</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </ContentTemplate>
+                            </TabItem>
+                        </TabItems>
+                    </SfTab>
+
+
+                </Body>
+            </Card>
+        </Column>
+    </Row>
+</ContentMain>
+
+@code {
+    [Parameter]
+    public string PromoPlanId { get; set; }
+
+
+    protected override void OnInitialized()
+    {
+        PromoPlanId = PromoPlanId ?? "PD-XXX-20210519-00001-00";
+    }
+}
+

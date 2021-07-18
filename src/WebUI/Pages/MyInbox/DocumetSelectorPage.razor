@@ -1,0 +1,266 @@
+﻿@page "/MyInbox/Documents/Selector"
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.SplitButtons
+@using Syncfusion.Blazor.DropDowns;
+
+@namespace GFCA.WebUI.Pages.MyInbox.Documents
+
+@inject NavigationManager nav
+
+<style>
+    .table {
+        display: table;
+        width: 80%;
+        margin: .5% auto 0;
+        border-collapse: separate;
+        font-weight: 400;
+    }
+
+    .table_row {
+        display: table-row;
+    }
+
+    .table_small {
+        display: table-cell;
+    }
+
+    .table_row > .table_small > .table_cell {
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+
+    @@media screen and (max-width: 1080px) {
+        .table {
+            width: 90%
+        }
+    }
+</style>
+
+
+<ContentMain>
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+                    Document Selection
+                </Header>
+                <Body>
+                    <div class="table">
+                        <div class="table_row">
+                            <div class="table_small">
+                                <div class="table_cell">Document Type :</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfComboBox TValue="int?"
+                                                TItem="WorkflowDto"
+                                                FloatLabelType="FloatLabelType.Never"
+                                                Placeholder="Select a Document Type"
+                                                CssClass="e-multi-column"
+                                                AllowFiltering="true"
+                                                PopupHeight="300px">
+                                        <ComboBoxFieldSettings Text="WorkflowName" Value="WorkflowId"></ComboBoxFieldSettings>
+
+                                        <ComboBoxTemplates TItem="WorkflowDto">
+                                            <ActionFailureTemplate>
+                                                <span class="norecord">Fetching data failed!</span>
+                                            </ActionFailureTemplate>
+                                            <NoRecordsTemplate>
+                                                <span class="norecord">No Data Available!</span>
+                                            </NoRecordsTemplate>
+
+                                            <HeaderTemplate>
+                                                <table>
+                                                    <tr>
+                                                        <th class="combo-id">ID</th>
+                                                        <th class="combo-name">Name</th>
+                                                        <th class="combo-desc">Description</th>
+                                                    </tr>
+                                                </table>
+                                            </HeaderTemplate>
+                                            <ItemTemplate Context="dialogContext">
+                                                @{
+                                                    var modelWf = (dialogContext as WorkflowDto);
+                                                }
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="combo-id">@(modelWf.WorkflowId)</td>
+                                                            <td class="combo-name">@(modelWf.WorkflowName)</td>
+                                                            <td class="combo-desc">@(modelWf.WorkflowDesc)</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </ItemTemplate>
+                                        </ComboBoxTemplates>
+                                    </SfComboBox>
+                                </div>
+                            </div>
+
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    &nbsp;&nbsp;<SfButton IconCss="fas fa-pencil-alt" CssClass="e-small e-round" @onclick=@(_ => nav.NavigateTo("/Master/Documents/DocumentTypes"))></SfButton>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="table_row">
+                            <div class="table_small">
+                                <div class="table_cell">Year :</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfComboBox TValue="int?"
+                                                TItem="WorkflowDto"
+                                                FloatLabelType="FloatLabelType.Never"
+                                                Placeholder="Select a Year"
+                                                CssClass="e-multi-column"
+                                                AllowFiltering="true"
+                                                PopupHeight="300px">
+                                        <ComboBoxFieldSettings Text="WorkflowName" Value="WorkflowId"></ComboBoxFieldSettings>
+
+                                        <ComboBoxTemplates TItem="WorkflowDto">
+                                            <ActionFailureTemplate>
+                                                <span class="norecord">Fetching data failed!</span>
+                                            </ActionFailureTemplate>
+                                            <NoRecordsTemplate>
+                                                <span class="norecord">No Data Available!</span>
+                                            </NoRecordsTemplate>
+
+                                            <HeaderTemplate>
+                                                <table>
+                                                    <tr>
+                                                        <th class="combo-id">ID</th>
+                                                        <th class="combo-name">Name</th>
+                                                        <th class="combo-desc">Description</th>
+                                                    </tr>
+                                                </table>
+                                            </HeaderTemplate>
+                                            <ItemTemplate Context="dialogContext">
+                                                @{
+                                                    var modelWf = (dialogContext as WorkflowDto);
+                                                }
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="combo-id">@(modelWf.WorkflowId)</td>
+                                                            <td class="combo-name">@(modelWf.WorkflowName)</td>
+                                                            <td class="combo-desc">@(modelWf.WorkflowDesc)</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </ItemTemplate>
+                                        </ComboBoxTemplates>
+                                    </SfComboBox>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small">
+                                <div class="table_cell">Requestor</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfTextBox ID="txtValues" FloatLabelType="FloatLabelType.Never" Placeholder="Requestor"></SfTextBox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small">
+                                <div class="table_cell">Customer :</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfComboBox TValue="int?"
+                                                TItem="WorkflowDto"
+                                                FloatLabelType="FloatLabelType.Never"
+                                                Placeholder="Select a Client"
+                                                CssClass="e-multi-column"
+                                                AllowFiltering="true"
+                                                PopupHeight="300px">
+                                        <ComboBoxFieldSettings Text="WorkflowName" Value="WorkflowId"></ComboBoxFieldSettings>
+
+                                        <ComboBoxTemplates TItem="WorkflowDto">
+                                            <ActionFailureTemplate>
+                                                <span class="norecord">Fetching data failed!</span>
+                                            </ActionFailureTemplate>
+                                            <NoRecordsTemplate>
+                                                <span class="norecord">No Data Available!</span>
+                                            </NoRecordsTemplate>
+
+                                            <HeaderTemplate>
+                                                <table>
+                                                    <tr>
+                                                        <th class="combo-id">ID</th>
+                                                        <th class="combo-name">Name</th>
+                                                        <th class="combo-desc">Description</th>
+                                                    </tr>
+                                                </table>
+                                            </HeaderTemplate>
+                                            <ItemTemplate Context="dialogContext2">
+                                                @{
+                                                    var modelWf2 = (dialogContext2 as WorkflowDto);
+                                                }
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="combo-id">@(modelWf2.WorkflowId)</td>
+                                                            <td class="combo-name">@(modelWf2.WorkflowName)</td>
+                                                            <td class="combo-desc">@(modelWf2.WorkflowDesc)</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </ItemTemplate>
+                                        </ComboBoxTemplates>
+                                    </SfComboBox>
+                                </div>
+                            </div>
+
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    &nbsp;&nbsp;<SfButton IconCss="fas fa-pencil-alt" CssClass="e-small e-round" @onclick=@(_ => nav.NavigateTo("/Master/BusinessParties/Customers"))></SfButton>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small">
+                                <div class="table_cell">% Sales Inc  :</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfTextBox ID="txtValues" FloatLabelType="FloatLabelType.Never" Placeholder="% Sale Inc"></SfTextBox>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="table_row">
+                            <div class="table_small">
+                                <div class="table_cell">% FOC (base on sales) :</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfTextBox ID="txtValues" FloatLabelType="FloatLabelType.Never" Placeholder="% FOC"></SfTextBox>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="table_row">
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfButton IsPrimary="true" @onclick=@(_ => nav.NavigateTo("/MyInbox/Documents/Budgets"))>Next</SfButton>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </Body>
+            </Card>
+        </Column>
+    </Row>
+</ContentMain>
+
+

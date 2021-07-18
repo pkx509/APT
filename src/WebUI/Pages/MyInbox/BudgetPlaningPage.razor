@@ -1,0 +1,500 @@
+﻿@page "/MyInbox/Documents/Budgets"
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.DropDowns;
+@using Syncfusion.Blazor.Navigations
+
+@namespace GFCA.WebUI.Pages.MyInbox.Documents
+
+@inject NavigationManager nav
+<ContentMain>
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+
+                    <div class="table_row">
+                        <div class="table_small">
+                            <div class="table_cell">Budget Planing for BG-0XXX-XXXXXX-XXXXX-XX</div>
+                        </div>
+                        <div class="table_small">
+                            <div class="table_cell">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                        </div>
+                        <div class="table_small">
+                            <div class="table_cell">
+                                <SfButton IsPrimary="true">Submit</SfButton>
+                                <SfButton IsPrimary="false">Confirm</SfButton>
+                                <SfButton>Discard</SfButton>
+                            </div>
+                        </div>
+                    </div>
+                </Header>
+                <Body>
+
+                    <div class="table">
+                        <div class="table_row">
+                            <div class="table_small">
+                                <div class="table_cell">Document Type :</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfComboBox TValue="int?"
+                                                TItem="WorkflowDto"
+                                                FloatLabelType="FloatLabelType.Never"
+                                                Placeholder="Select a Document Type"
+                                                CssClass="e-multi-column"
+                                                AllowFiltering="true"
+                                                PopupHeight="300px">
+                                        <ComboBoxFieldSettings Text="WorkflowName" Value="WorkflowId"></ComboBoxFieldSettings>
+
+                                        <ComboBoxTemplates TItem="WorkflowDto">
+                                            <ActionFailureTemplate>
+                                                <span class="norecord">Fetching data failed!</span>
+                                            </ActionFailureTemplate>
+                                            <NoRecordsTemplate>
+                                                <span class="norecord">No Data Available!</span>
+                                            </NoRecordsTemplate>
+
+                                            <HeaderTemplate>
+                                                <table>
+                                                    <tr>
+                                                        <th class="combo-id">ID</th>
+                                                        <th class="combo-name">Name</th>
+                                                        <th class="combo-desc">Description</th>
+                                                    </tr>
+                                                </table>
+                                            </HeaderTemplate>
+                                            <ItemTemplate Context="dialogContext">
+                                                @{
+                                                    var modelWf = (dialogContext as WorkflowDto);
+                                                }
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="combo-id">@(modelWf.WorkflowId)</td>
+                                                            <td class="combo-name">@(modelWf.WorkflowName)</td>
+                                                            <td class="combo-desc">@(modelWf.WorkflowDesc)</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </ItemTemplate>
+                                        </ComboBoxTemplates>
+                                    </SfComboBox>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="table_row">
+                            <div class="table_small">
+                                <div class="table_cell">Year :</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfTextBox ID="txtBudgetPlaing" FloatLabelType="FloatLabelType.Never" Placeholder="Budget Plaing"></SfTextBox>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small">
+                                <div class="table_cell">Requestor</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfTextBox ID="txtValues" FloatLabelType="FloatLabelType.Never" Placeholder="Requestor"></SfTextBox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small">
+                                <div class="table_cell">Client :</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <SfComboBox TValue="int?"
+                                                TItem="WorkflowDto"
+                                                FloatLabelType="FloatLabelType.Never"
+                                                Placeholder="Select a Client"
+                                                CssClass="e-multi-column"
+                                                AllowFiltering="true"
+                                                PopupHeight="300px">
+                                        <ComboBoxFieldSettings Text="WorkflowName" Value="WorkflowId"></ComboBoxFieldSettings>
+
+                                        <ComboBoxTemplates TItem="WorkflowDto">
+                                            <ActionFailureTemplate>
+                                                <span class="norecord">Fetching data failed!</span>
+                                            </ActionFailureTemplate>
+                                            <NoRecordsTemplate>
+                                                <span class="norecord">No Data Available!</span>
+                                            </NoRecordsTemplate>
+
+                                            <HeaderTemplate>
+                                                <table>
+                                                    <tr>
+                                                        <th class="combo-id">ID</th>
+                                                        <th class="combo-name">Name</th>
+                                                        <th class="combo-desc">Description</th>
+                                                    </tr>
+                                                </table>
+                                            </HeaderTemplate>
+                                            <ItemTemplate Context="dialogContext2">
+                                                @{
+                                                    var modelWf2 = (dialogContext2 as WorkflowDto);
+                                                }
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="combo-id">@(modelWf2.WorkflowId)</td>
+                                                            <td class="combo-name">@(modelWf2.WorkflowName)</td>
+                                                            <td class="combo-desc">@(modelWf2.WorkflowDesc)</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </ItemTemplate>
+                                        </ComboBoxTemplates>
+                                    </SfComboBox>
+                                </div>
+                            </div>
+
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    &nbsp;&nbsp;<SfButton IconCss="fas fa-pencil-alt" CssClass="e-small e-round" @onclick=@(_ => nav.NavigateTo("/Master/BusinessParties/Customers"))></SfButton>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <SfTab Height="500px" CssClass="tab-adaptive" HeaderPlacement="HeaderPosition.Top" OverflowMode="OverflowMode.Scrollable">
+                        <TabItems>
+                            <TabItem>
+                                <ChildContent>
+                                    <TabHeader Text="Overview"></TabHeader>
+                                </ChildContent>
+                                <ContentTemplate>
+                                    <table>
+                                        <tr>
+                                            <td>Year :</td>
+                                            <td>2021</td>
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                            <td>Total Estimated Sales:</td>
+                                            <td>0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Channel :</td>
+                                            <td>MT - Modern Trade</td>
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                            <td>Forecast Type</td>
+                                            <td>Product(SKU)</td>
+                                        </tr>
+                                    </table>
+
+                                    <SfTab Height="500px" CssClass="tab-adaptive" HeaderPlacement="HeaderPosition.Top" OverflowMode="OverflowMode.Scrollable">
+                                        <TabItems>
+                                            <TabItem>
+                                                <ChildContent>
+                                                    <TabHeader Text="By Channel by Customer"></TabHeader>
+                                                </ChildContent>
+                                                <ContentTemplate>
+
+                                                    <!--
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>&nbsp;</th>
+                                                                <th colspan="2">Total</th>
+                                                                <th colspan="2">Sales</th>
+                                                                <th colspan="2">FOC</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Month</th>
+                                                                <th>Qty</th>
+                                                                <th>THB</th>
+                                                                <th>Qty</th>
+                                                                <th>THB</th>
+                                                                <th>Qty</th>
+                                                                <th>THB</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr><td>Jan</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td></tr>
+                                                            <tr><td>Feb</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td></tr>
+                                                            <tr><td>Mar</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td></tr>
+                                                            <tr><td>Apr</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td></tr>
+                                                            <tr><td>May</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td></tr>
+                                                            <tr><td>Jun</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td></tr>
+                                                            <tr><td>Jul</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td></tr>
+                                                            <tr><td>Aug</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td></tr>
+                                                            <tr><td>Sep</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td></tr>
+                                                            <tr><td>Oct</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td></tr>
+                                                            <tr><td>Nov</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td></tr>
+                                                            <tr><td>Dec</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td><td>1</td><td>0.00</td></tr>
+                                                        </tbody>
+                                                        <tfoot>
+
+                                                        </tfoot>
+                                                    </table>
+                                                    -->
+
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Channel</th>
+                                                                <th>Customer</th>
+                                                                <th>Sale vs Invesments(%)</th>
+                                                                <th>Actual Last Year(THB) Sale</th>
+                                                                <th>Target Current Year(THB) Sale</th>
+                                                                <th>% Contribution Sale</th>
+                                                                <th>Target Current Year(THB) Investment</th>
+                                                                <th>% Contribution Investment</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr><td>Modern Trade</td><td>Big C</td><td>100.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td></tr>
+                                                        </tbody>
+                                                        <tfoot>
+
+                                                        </tfoot>
+                                                    </table>
+
+                                                </ContentTemplate>
+                                            </TabItem>
+
+                                            <TabItem>
+                                                <ChildContent>
+                                                    <TabHeader Text="By Channel"></TabHeader>
+                                                </ChildContent>
+                                                <ContentTemplate>
+
+
+
+                                                </ContentTemplate>
+                                            </TabItem>
+
+                                            <TabItem>
+                                                <ChildContent>
+                                                    <TabHeader Text="By Brand"></TabHeader>
+                                                </ChildContent>
+                                                <ContentTemplate>
+
+
+
+                                                </ContentTemplate>
+                                            </TabItem>
+                                        </TabItems>
+                                    </SfTab>
+
+                                </ContentTemplate>
+                            </TabItem>
+                            <TabItem>
+                                <ChildContent>
+                                    <TabHeader Text="Detail"></TabHeader>
+                                </ChildContent>
+                                <ContentTemplate>
+                                    <SfTab Height="250px" CssClass="tab-adaptive" HeaderPlacement="HeaderPosition.Top" OverflowMode="OverflowMode.Extended">
+                                        <TabItems>
+                                            <TabItem>
+                                                <ChildContent>
+                                                    <TabHeader Text="Sale"></TabHeader>
+                                                </ChildContent>
+                                                <ContentTemplate>
+                                                    <div class="e-control e-toolbar e-lib e-keyboard" role="toolbar" aria-orientation="horizontal" aria-haspopup="false" tabindex="0" style="height: auto; width: auto;">
+                                                        <div class="e-toolbar-items">
+                                                            <div class="e-toolbar-item" aria-disabled="false" id="sfgridzqkntqkcpif_add" data-index="0" title="Add" padding-left="4px">
+                                                                <button class="e-control e-btn e-lib e-tbar-btn e-tbtn-txt" type="button" tabindex="-1" style="width:auto"><span class="e-add e-icons e-btn-icon e-icon-left"></span><span class="e-tbar-btn-text">Add</span></button>
+                                                            </div><div class="e-toolbar-item e-overlay" aria-disabled="true" id="sfgridzqkntqkcpif_edit" data-index="1" title="Edit">
+                                                                <button class="e-control e-btn e-lib e-tbar-btn e-tbtn-txt" type="button" tabindex="-1" style="width:auto"><span class="e-edit e-icons e-btn-icon e-icon-left"></span><span class="e-tbar-btn-text">Edit</span></button>
+                                                            </div><div class="e-toolbar-item e-overlay" aria-disabled="true" id="sfgridzqkntqkcpif_delete" data-index="2" title="Delete">
+                                                                <button class="e-control e-btn e-lib e-tbar-btn e-tbtn-txt" type="button" tabindex="-1" style="width:auto"><span class="e-delete e-icons e-btn-icon e-icon-left"></span><span class="e-tbar-btn-text">Delete</span></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Channel</th>
+                                                                <th>Customer</th>
+                                                                <th>Brand</th>
+                                                                <th>Cost Center</th>
+                                                                <th>Source of Fund</th>
+                                                                <th>Actual Last Year(THB)</th>
+                                                                <th>Type</th>
+                                                                <th>Value(THB/%)</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>xxx</td>
+                                                                <td>xxx</td>
+                                                                <td>xxx</td>
+                                                                <td>xxx</td>
+                                                                <td>xxx</td>
+                                                                <td>xxx</td>
+                                                                <td>xxx</td>
+                                                                <td>xxx</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </ContentTemplate>
+                                            </TabItem>
+                                            <TabItem>
+                                                <ChildContent>
+                                                    <TabHeader Text="Invesment"></TabHeader>
+                                                </ChildContent>
+                                                <ContentTemplate>
+
+                                                    <div class="e-control e-toolbar e-lib e-keyboard" role="toolbar" aria-orientation="horizontal" aria-haspopup="false" tabindex="0" style="height: auto; width: auto;">
+                                                        <div class="e-toolbar-items">
+                                                            <div class="e-toolbar-item" aria-disabled="false" id="sfgridzqkntqkcpif_add" data-index="0" title="Add" padding-left="4px">
+                                                                <button class="e-control e-btn e-lib e-tbar-btn e-tbtn-txt" type="button" tabindex="-1" style="width:auto"><span class="e-add e-icons e-btn-icon e-icon-left"></span><span class="e-tbar-btn-text">Add</span></button>
+                                                            </div><div class="e-toolbar-item e-overlay" aria-disabled="true" id="sfgridzqkntqkcpif_edit" data-index="1" title="Edit">
+                                                                <button class="e-control e-btn e-lib e-tbar-btn e-tbtn-txt" type="button" tabindex="-1" style="width:auto"><span class="e-edit e-icons e-btn-icon e-icon-left"></span><span class="e-tbar-btn-text">Edit</span></button>
+                                                            </div><div class="e-toolbar-item e-overlay" aria-disabled="true" id="sfgridzqkntqkcpif_delete" data-index="2" title="Delete">
+                                                                <button class="e-control e-btn e-lib e-tbar-btn e-tbtn-txt" type="button" tabindex="-1" style="width:auto"><span class="e-delete e-icons e-btn-icon e-icon-left"></span><span class="e-tbar-btn-text">Delete</span></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Channel</th>
+                                                                <th>Customer</th>
+                                                                <th>Brand</th>
+                                                                <th>Trade Activity</th>
+                                                                <th>Cost Center</th>
+                                                                <th>Source of Fund</th>
+                                                                <th>Actual Last Year(THB)</th>
+                                                                <th>Type</th>
+                                                                <th>Value(THB/%)</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>xxx</td>
+                                                                <td>xxx</td>
+                                                                <td>xxx</td>
+                                                                <td>xxx</td>
+                                                                <td>xxx</td>
+                                                                <td>xxx</td>
+                                                                <td>xxx</td>
+                                                                <td>xxx</td>
+                                                                <td>xxx</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </ContentTemplate>
+                                            </TabItem>
+                                        </TabItems>
+                                    </SfTab>
+                                </ContentTemplate>
+                            </TabItem>
+                            <TabItem>
+                                <ChildContent>
+                                    <TabHeader Text="Adjustment History"></TabHeader>
+                                </ChildContent>
+                                <ContentTemplate>
+                                    Adjustment History
+                                </ContentTemplate>
+                            </TabItem>
+                            <TabItem>
+                                <ChildContent>
+                                    <TabHeader Text="Audit"></TabHeader>
+                                </ChildContent>
+                                <ContentTemplate>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>State</th>
+                                                <th>Time</th>
+                                                <th>Actor</th>
+                                                <th>Comment</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Submitted</td>
+                                                <td>HH:mm:ss</td>
+                                                <td>Mr. A1</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Confirmed</td>
+                                                <td>HH:mm:ss</td>
+                                                <td>Mr. A1</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>MD Approved</td>
+                                                <td>HH:mm:ss</td>
+                                                <td>Mr. B1</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Accounttant</td>
+                                                <td>HH:mm:ss</td>
+                                                <td>Mr. C1</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Reviewer</td>
+                                                <td>HH:mm:ss</td>
+                                                <td>Mr. CEO</td>
+                                                <td>Reject reson blah blah</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </ContentTemplate>
+                            </TabItem>
+                        </TabItems>
+                    </SfTab>
+
+
+                </Body>
+            </Card>
+        </Column>
+    </Row>
+</ContentMain>
+
+
+<style>
+    div.table {
+        display: table;
+        width: 80%;
+        margin: .5% auto 0;
+        border-collapse: separate;
+        font-weight: 400;
+    }
+
+    .table_row {
+        display: table-row;
+    }
+
+    .table_small {
+        display: table-cell;
+    }
+
+    .table_row > .table_small > .table_cell {
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+
+    @@media screen and (max-width: 1080px) {
+        .table {
+            width: 90%
+        }
+    }
+</style>

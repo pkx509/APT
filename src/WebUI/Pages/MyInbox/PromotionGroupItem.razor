@@ -1,0 +1,241 @@
+﻿@page "/MyInbox/Documents/PromotionGroup/{PromoGroupNo}"
+
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.DropDowns;
+@using Syncfusion.Blazor.Navigations
+
+@namespace GFCA.WebUI.Pages.MyInbox.Documents
+
+
+<style>
+    .table {
+        display: table;
+        width: 80%;
+        margin: .5% auto 0;
+        border-collapse: separate;
+        font-weight: 400;
+    }
+
+    .table_row {
+        display: table-row;
+    }
+
+    .table_small {
+        display: table-cell;
+    }
+
+    .table_row > .table_small > .table_cell {
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+
+    @@media screen and (max-width: 1080px) {
+        .table {
+            width: 90%
+        }
+    }
+</style>
+<ContentMain>
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+
+                    <div class="table_row">
+                        <div class="table_small">
+                            <div class="table_cell">Promotion Group : @PromoGroupNo</div>
+                        </div>
+                    </div>
+                </Header>
+                <Body>
+
+                    <div class="table">
+
+                        <div class="table_row">
+
+                            <div class="table_small"><div class="table_cell">Code :</div></div>
+                            <div class="table_small"><div class="table_cell"><input /></div></div>
+                            <div class="table_small"><div class="table_cell">Brand :</div></div>
+                            <div class="table_small"><div class="table_cell"><input /></div></div>
+
+                        </div>
+                        <div class="table_row">
+
+                            <div class="table_small"><div class="table_cell">Name :</div></div>
+                            <div class="table_small"><div class="table_cell"><input /></div></div>
+                            <div class="table_small"><div class="table_cell">Channel :</div></div>
+                            <div class="table_small"><div class="table_cell"><input /></div></div>
+
+                        </div>
+                        <div class="table_row">
+
+                            <div class="table_small"><div class="table_cell">Description :</div></div>
+                            <div class="table_small"><div class="table_cell"><input /></div></div>
+                            <div class="table_small"><div class="table_cell">Customer :</div></div>
+                            <div class="table_small"><div class="table_cell"><input /></div></div>
+                            <div class="table_small"><div class="table_cell"><input type="button" value="Search" /></div></div>
+
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="table">
+
+                        <div class="table_row">
+
+                            <div class="table_small"><div class="table_cell" style="font-size: .85em;">&nbsp;</div></div>
+                            <div class="table_small"><div class="table_cell" style="font-size: .85em;">Normal Shelf Price <wbr />(THB)</div></div>
+                            <div class="table_small"><div class="table_cell" style="font-size: .85em;">Normal Discount <wbr />(THB)</div></div>
+                            <div class="table_small"><div class="table_cell" style="font-size: .85em;">Normal GP <wbr />(%)</div></div>
+                            <div class="table_small"><div class="table_cell" style="font-size: .85em;">Discount Type</div></div>
+                            <div class="table_small"><div class="table_cell" style="font-size: .85em;">Promotion Discount</div></div>
+                            <div class="table_small"><div class="table_cell" style="font-size: .85em;">Promotion Price (THB)</div></div>
+                            <div class="table_small"><div class="table_cell" style="font-size: .85em;">Promotion GP (%)</div></div>
+                            <div class="table_small"><div class="table_cell" style="font-size: .85em;">&nbsp;</div></div>
+
+                        </div>
+                        <div class="table_row">
+                            <div class="table_small"><div class="table_cell" style="font-size: .85em;">Apply to All</div></div>
+                            <div class="table_small"><div class="table_cell"><input style="width: 100px;" /></div></div>
+                            <div class="table_small"><div class="table_cell"><input style="width: 100px;" /></div></div>
+                            <div class="table_small"><div class="table_cell"><input style="width: 100px;" /></div></div>
+                            <div class="table_small"><div class="table_cell"><input style="width: 100px;" /></div></div>
+                            <div class="table_small"><div class="table_cell"><input style="width: 100px;" /></div></div>
+                            <div class="table_small"><div class="table_cell"><input style="width: 100px;" /></div></div>
+                            <div class="table_small"><div class="table_cell"><input style="width: 100px;" /></div></div>
+                            <div class="table_small"><div class="table_cell"><input type="button" value="Applies" /></div></div>
+
+                        </div>
+                    </div>
+
+                    <div class="e-control e-toolbar e-lib e-keyboard" role="toolbar" aria-orientation="horizontal" aria-haspopup="false" tabindex="0" style="height: auto; width: auto;">
+                        <div class="e-toolbar-items">
+                            <div class="e-toolbar-item" aria-disabled="false" id="sfgridzqkntqkcpif_add" data-index="0" title="Add" padding-left="4px">
+                                <button class="e-control e-btn e-lib e-tbar-btn e-tbtn-txt" type="button" tabindex="-1" style="width:auto"><span class="e-add e-icons e-btn-icon e-icon-left"></span><span class="e-tbar-btn-text">Add</span></button>
+                            </div>
+                            <div class="e-toolbar-item e-overlay" aria-disabled="true" id="sfgridzqkntqkcpif_edit" data-index="1" title="Update">
+                                <button class="e-control e-btn e-lib e-tbar-btn e-tbtn-txt" type="button" tabindex="-1" style="width:auto"><span class="e-edit e-icons e-btn-icon e-icon-left"></span><span class="e-tbar-btn-text">Update</span></button>
+                            </div>
+                            <div class="e-toolbar-item e-overlay" aria-disabled="true" id="sfgridzqkntqkcpif_delete" data-index="2" title="Delete">
+                                <button class="e-control e-btn e-lib e-tbar-btn e-tbtn-txt" type="button" tabindex="-1" style="width:auto"><span class="e-delete e-icons e-btn-icon e-icon-left"></span><span class="e-tbar-btn-text">Delete</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>Product</th>
+                                <th>Norm. Shelf (THB)</th>
+                                <th>Norm. Discount (%)</th>
+                                <th>Norm. GP (%)</th>
+                                <th>Discount Type</th>
+                                <th>Promo. Discount</th>
+                                <th>Promo. Price (THB)</th>
+                                <th>Promo. GP (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <NavLink href="/MyInbox/Documents/PromotionGroup/PickProduct/P-20210501-00001/100001-Product1" class="nave-link" Match="NavLinkMatch.All">
+                                        100001-Product1
+                                    </NavLink>
+                                </td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <NavLink href="/MyInbox/Documents/PromotionGroup/PickProduct/P-20210501-00001/100002-Product2" class="nave-link" Match="NavLinkMatch.All">
+                                        100002-Product2
+                                    </NavLink>
+                                </td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <NavLink href="/MyInbox/Documents/PromotionGroup/PickProduct/P-20210501-00001/100003-Product3" class="nave-link" Match="NavLinkMatch.All">
+                                        100003-Product3
+                                    </NavLink>
+                                </td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <NavLink href="/MyInbox/Documents/PromotionGroup/PickProduct/P-20210501-00001/100004-Product4" class="nave-link" Match="NavLinkMatch.All">
+                                        100004-Product4
+                                    </NavLink>
+                                </td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <NavLink href="/MyInbox/Documents/PromotionGroup/PickProduct/P-20210501-00001/100005-Product5" class="nave-link" Match="NavLinkMatch.All">
+                                        100005-Product5
+                                    </NavLink>
+                                </td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                                <td><input type="text" style="width: 95px;" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </Body>
+                <Footer>
+
+                </Footer>
+            </Card>
+        </Column>
+    </Row>
+</ContentMain>
+
+@code{
+
+    [Parameter]
+    public string PromoYear { get; set; }
+
+    [Parameter]
+    public string PromoGroupNo { get; set; }
+
+    protected override void OnInitialized()
+    {
+        PromoYear = PromoYear ?? "2021";
+        PromoGroupNo = PromoGroupNo ?? $"P-{PromoYear}-00001";
+    }
+
+}

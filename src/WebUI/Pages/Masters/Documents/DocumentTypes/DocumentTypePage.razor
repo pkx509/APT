@@ -1,0 +1,159 @@
+﻿@page "/Master/Documents/DocumentTypes"
+@using Syncfusion.Blazor.Data
+@using Syncfusion.Blazor.Grids
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.DropDowns;
+ 
+@using GFCA.Shared.Models.Dto
+@namespace GFCA.WebUI.Pages.Masters.Documents.DocumentTypes
+
+<ContentMain>
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+                    <CardTitle>
+                        <i class="ion ion-clipboard mr-1"></i>
+                        DocumentType Masters
+                    </CardTitle>
+                </Header>
+                <Body>
+
+                    <SfGrid TValue="DocumentTypeDto" AllowPaging="true" AllowFiltering="true" AllowSorting="true" Toolbar="@(new string[] { "Add", "Edit", "Delete" })">
+                        <SfDataManager AdaptorInstance="@typeof(DocumentTypeService)" Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                        <GridEvents TValue="DocumentTypeDto"
+                                    OnActionBegin="ActionBeginHandler"
+                                    OnActionComplete="ActionCompleteHandler"
+                                    OnCellSave="CellSaveHandler"
+                                    CellSaved="CellSavedHandler"></GridEvents>
+                        <GridFilterSettings Type="Syncfusion.Blazor.Grids.FilterType.Menu"></GridFilterSettings>
+                        <GridEditSettings AllowAdding="PermitAdding" AllowEditing="PermitEditing" AllowDeleting="PermitDeleting" Mode="@EditMode.Dialog" Dialog="DialogParams">
+                            <Template>
+                                @{
+                                    var model = (context as DocumentTypeDto);
+                                }
+                                <div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtDocumentTypeCode" @bind-Value="@(model.DocumentTypeCode)" Enabled="@(EnabledAdd)" FloatLabelType="FloatLabelType.Always" Placeholder="Type Code"></SfTextBox>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtDocumentTypeName" @bind-Value="@(model.DocumentTypeName)" FloatLabelType="FloatLabelType.Always" Placeholder="Type Name"></SfTextBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <SfComboBox @ref="cmbWorkflow"
+                                                        TValue="int?"
+                                                        TItem="WorkflowDto"
+                                                        FloatLabelType="FloatLabelType.Always"
+                                                        Placeholder="Select a Workflow"
+                                                        CssClass="e-multi-column"
+                                                        AllowFiltering="true"
+                                                        Value="@(model.WorkflowId)"
+                                                        PopupHeight="300px">
+                                                <SfDataManager AdaptorInstance="@typeof(WorkflowService)" Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                                                <ComboBoxFieldSettings Text="WorkflowName" Value="WorkflowId"></ComboBoxFieldSettings>
+
+                                                <ComboBoxTemplates TItem="WorkflowDto">
+                                                    <ActionFailureTemplate>
+                                                        <span class="norecord">Fetching data failed!</span>
+                                                    </ActionFailureTemplate>
+                                                    <NoRecordsTemplate>
+                                                        <span class="norecord">No Data Available!</span>
+                                                    </NoRecordsTemplate>
+
+                                                    <HeaderTemplate>
+                                                        <table>
+                                                            <tr>
+                                                                <th class="combo-id">ID</th>
+                                                                <th class="combo-name">Name</th>
+                                                                <th class="combo-desc">Description</th>
+                                                            </tr>
+                                                        </table>
+                                                    </HeaderTemplate>
+                                                    <ItemTemplate Context="dialogContext">
+                                                        @{
+                                                            var modelWf = (dialogContext as WorkflowDto);
+                                                        }
+                                                        <table>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="combo-id">@(modelWf.WorkflowId)</td>
+                                                                    <td class="combo-name">@(modelWf.WorkflowName)</td>
+                                                                    <td class="combo-desc">@(modelWf.WorkflowDesc)</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </ItemTemplate>
+
+                                                </ComboBoxTemplates>
+
+
+                                            </SfComboBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <SfTextBox ID="txtDocumentTypeDesc" @bind-Value="@(model.DocumentTypeDesc)" FloatLabelType="FloatLabelType.Always" Multiline="true" Placeholder="Description"></SfTextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Template>
+                        </GridEditSettings>
+                        <GridColumns>
+                            <GridColumn Field=@nameof(DocumentTypeDto.DocumentTypeId) IsPrimaryKey="true" Visible="false" />
+                            <GridColumn Field=@nameof(DocumentTypeDto.DocumentTypeCode) HeaderText="Code" TextAlign="@TextAlign.Left" HeaderTextAlign="@TextAlign.Center" Width="90"
+                                        ValidationRules="@(new ValidationRules{ Required=true })"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.CheckBox })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentTypeDto.DocumentTypeName) HeaderText="Document Type" Width="100" TextAlign="@TextAlign.Left"
+                                        ValidationRules="@(new ValidationRules{ Required=true})"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            @*
+                            <GridForeignColumn TValue="WorkflowDto"
+                                               Field=@nameof(DocumentTypeDto.WorkflowId)
+                                               HeaderText="Workflow"
+                                               ForeignKeyValue="WorkflowId"
+                                               Type="ColumnType.Number"
+                                               Width="100"
+                                               FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })">
+                                
+                            </GridForeignColumn>
+                            *@
+                            <GridColumn Field=@nameof(DocumentTypeDto.WorkflowId) HeaderText="Workflow" Width="100" Type="ColumnType.String" EditType="EditType.DropDownEdit"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+
+                            <GridColumn Field=@nameof(DocumentTypeDto.CreatedBy) HeaderText="Created By" Width="80"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentTypeDto.CreatedDate) HeaderText="Created Date" Width="100" Type="ColumnType.DateTime" Format="dd MMM yyyy HH:mm:ss"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Menu })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentTypeDto.UpdatedBy) HeaderText="Updated By" Width="80"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentTypeDto.UpdatedDate) HeaderText="Updated Date" Width="100" Type="ColumnType.DateTime" Format="dd MMM yyyy HH:mm:ss"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                        </GridColumns>
+                    </SfGrid>
+
+                </Body>
+            </Card>
+        </Column>
+    </Row>
+</ContentMain>
+
+<style>
+    .norecord {
+        font-size : 15px;
+        vertical-align : middle;
+    }
+    .combo-id {
+        width : 45px;
+    }
+    .combo-name {
+        width: 150px;
+        text-align: left;
+    }
+    .combo-desc {
+        width : 150px;
+        text-align : left;
+    }
+</style>

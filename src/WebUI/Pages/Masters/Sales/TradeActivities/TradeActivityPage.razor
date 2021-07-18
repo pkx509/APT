@@ -1,0 +1,333 @@
+﻿@page "/Master/Sales/TradeActivities"
+
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.SplitButtons
+@using Syncfusion.Blazor.DropDowns;
+
+@namespace GFCA.WebUI.Pages.Masters.Sales.TradeActivities
+
+<ContentMain>
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+                    <CardTitle>
+                        <i class="ion ion-clipboard mr-1"></i>
+                        Trade Activities Masters
+                    </CardTitle>
+                </Header>
+                <Body>
+
+                    <SfGrid TValue="TradeActivityDto" AllowPaging="true" AllowFiltering="true" AllowSorting="true" Toolbar="@(new string[] { "Add", "Edit", "Delete" })">
+                        <SfDataManager AdaptorInstance="@typeof(TradeActivityService)" Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                        <GridEvents OnActionComplete="ActionCompleteHandler" TValue="TradeActivityDto"></GridEvents>
+                        <GridFilterSettings Type="Syncfusion.Blazor.Grids.FilterType.Menu"></GridFilterSettings>
+                        <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true" Mode="@EditMode.Dialog" Dialog="DialogParams">
+                            <Template>
+                                @{
+                                    var model = (context as TradeActivityDto);
+                                }
+                                <div>
+                                    <div class="table">
+                                        <div class="table_row">
+                                            <div class="table_small">
+                                                <div class="table_cell">GL Group :</div>
+                                            </div>
+                                            <div class="table_small">
+                                                <div class="table_cell">
+                                                    <SfComboBox TValue="int?"
+                                                                TItem="GLGroupDto"
+                                                                FloatLabelType="FloatLabelType.Never"
+                                                                Placeholder="Select a GL Group"
+                                                                CssClass="e-multi-column"
+                                                                AllowFiltering="true"
+                                                                PopupHeight="300px">
+                                                        <SfDataManager AdaptorInstance="@typeof(GFCA.WebUI.Pages.Masters.Accountants.GLGroups.GLGroupService)" Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                                                        <ComboBoxFieldSettings Text="GroupName" Value="GroupId"></ComboBoxFieldSettings>
+
+                                                        <ComboBoxTemplates TItem="GLGroupDto">
+                                                            <ActionFailureTemplate>
+                                                                <span class="norecord">Fetching data failed!</span>
+                                                            </ActionFailureTemplate>
+                                                            <NoRecordsTemplate>
+                                                                <span class="norecord">No Data Available!</span>
+                                                            </NoRecordsTemplate>
+
+                                                            <HeaderTemplate>
+                                                                <table>
+                                                                    <tr>
+                                                                        <th class="combo-id">ID</th>
+                                                                        <th class="combo-name">Code</th>
+                                                                        <th class="combo-desc">Name</th>
+                                                                    </tr>
+                                                                </table>
+                                                            </HeaderTemplate>
+                                                            <ItemTemplate Context="diaxConx1">
+                                                                @{
+                                                                    var model1 = (diaxConx1 as GLGroupDto);
+                                                                }
+                                                                <table>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td class="combo-id">@(model1.GroupId)</td>
+                                                                            <td class="combo-name">@(model1.GroupName)</td>
+                                                                            <td class="combo-desc">@(model1.GroupPolicy)</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </ItemTemplate>
+                                                        </ComboBoxTemplates>
+                                                    </SfComboBox>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="table_small">
+                                                <div class="table_cell">
+                                                    &nbsp;&nbsp;
+                                                    <NavLink href="/Master/Accountants/GLGroups" class="e-control e-btn e-lib e-small e-round e-icon-btn">
+                                                        <span class="fas fa-pencil-alt e-btn-icon"></span>
+                                                    </NavLink>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="table_row">
+                                            <div class="table_small">
+                                                <div class="table_cell">GL Account</div>
+                                            </div>
+                                            <div class="table_small">
+                                                <div class="table_cell">
+                                                    <SfComboBox TValue="int?"
+                                                                TItem="GLAccountDto"
+                                                                FloatLabelType="FloatLabelType.Never"
+                                                                Placeholder="Select a GL Account"
+                                                                CssClass="e-multi-column"
+                                                                AllowFiltering="true"
+                                                                PopupHeight="300px">
+                                                        <SfDataManager AdaptorInstance="@typeof(GFCA.WebUI.Pages.Masters.Accountants.GLAccounts.GLAccountService)" Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                                                        <ComboBoxFieldSettings Text="GLName" Value="AccountId"></ComboBoxFieldSettings>
+
+                                                        <ComboBoxTemplates TItem="GLAccountDto">
+                                                            <ActionFailureTemplate>
+                                                                <span class="norecord">Fetching data failed!</span>
+                                                            </ActionFailureTemplate>
+                                                            <NoRecordsTemplate>
+                                                                <span class="norecord">No Data Available!</span>
+                                                            </NoRecordsTemplate>
+
+                                                            <HeaderTemplate>
+                                                                <table>
+                                                                    <tr>
+                                                                        <th class="combo-id">ID</th>
+                                                                        <th class="combo-name">Code</th>
+                                                                        <th class="combo-desc">Name</th>
+                                                                    </tr>
+                                                                </table>
+                                                            </HeaderTemplate>
+                                                            <ItemTemplate Context="diagConx2">
+                                                                @{
+                                                                    var model2 = (diagConx2 as GLAccountDto);
+                                                                }
+                                                                <table>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td class="combo-id">@(model2.AccountId)</td>
+                                                                            <td class="combo-name">@(model2.GLName)</td>
+                                                                            <td class="combo-desc">@(model2.Purpose)</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </ItemTemplate>
+                                                        </ComboBoxTemplates>
+                                                    </SfComboBox>
+                                                </div>
+                                            </div>
+                                            <div class="table_small">
+                                                <div class="table_cell">
+                                                    &nbsp;&nbsp;
+                                                    <NavLink href="/Master/Accountants/GLAccounts" class="e-control e-btn e-lib e-small e-round e-icon-btn">
+                                                        <span class="fas fa-pencil-alt e-btn-icon"></span>
+                                                    </NavLink>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="table_row">
+                                            <div class="table_small">
+                                                <div class="table_cell">Activity Code</div>
+                                            </div>
+                                            <div class="table_small">
+                                                <div class="table_cell">
+                                                    <SfTextBox ID="txtValues" @bind-Value="model.ActivityCode" FloatLabelType="FloatLabelType.Never" Placeholder="Value"></SfTextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="table_row">
+                                            <div class="table_small">
+                                                <div class="table_cell">Activity Name</div>
+                                            </div>
+                                            <div class="table_small">
+                                                <div class="table_cell">
+                                                    <SfTextBox ID="txtValues" @bind-Value="model.ActivityName" FloatLabelType="FloatLabelType.Never" Placeholder="Value"></SfTextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="table_row">
+
+                                            <div class="table_small">
+                                                &nbsp;
+                                            </div>
+                                            <div class="table_small">
+                                                <div class="table_cell"><SfCheckBox @bind-Checked="@model.IsFixedContract" Label="Fixed Contract"></SfCheckBox></div>
+                                                <div class="table_cell"><SfCheckBox @bind-Checked="@model.IsDeductable" Label="Deductable"></SfCheckBox></div>
+                                            </div>
+
+                                        </div>
+                                        <div class="table_row">
+                                            <div class="table_small">
+                                                <div class="table_cell">Value</div>
+                                            </div>
+                                            <div class="table_small">
+                                                <div class="table_cell">
+                                                    <SfTextBox ID="txtValues" @bind-Value="model.Value" FloatLabelType="FloatLabelType.Never" Placeholder="Value"></SfTextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="table_row">
+                                            <div class="table_small">
+                                                <div class="table_cell">Remark</div>
+                                            </div>
+                                            <div class="table_small">
+                                                <div class="table_cell">
+                                                    <SfTextBox ID="txtRemark" @bind-Value="model.Remark" FloatLabelType="FloatLabelType.Never" Placeholder="Remark" Multiline="true"></SfTextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <br />
+                                    <div class="table">
+                                        <div class="table_row">
+                                            <div class="table_small">
+                                                <div class="table_cell"><h4>Sale In (Actual Sale)</h4></div>
+                                                <div class="table_cell">
+                                                    <ul style="list-style-type:none">
+                                                        <li><SfCheckBox @bind-Checked="@model.HaveSaleInTHB" Label="THB/cs"></SfCheckBox></li>
+                                                        <li><SfCheckBox @bind-Checked="@model.HaveSaleInGrossSale" Label="% to Gross Sale"></SfCheckBox></li>
+                                                        <li><SfCheckBox @bind-Checked="@model.HaveSaleInNotSale" Label="% to Not Sale"></SfCheckBox></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="table_small">
+                                                <div class="table_cell"><h4>Sale Out (Estimated)</h4></div>
+                                                <div class="table_cell">
+                                                    <ul style="list-style-type:none">
+                                                        <li><SfCheckBox @bind-Checked="@model.HaveSaleOutTHB" Label="THB/cs"></SfCheckBox></li>
+                                                        <li><SfCheckBox @bind-Checked="@model.HaveSaleOutGrossSale" Label="% to Gross Sale"></SfCheckBox></li>
+                                                        <li><SfCheckBox @bind-Checked="@model.HaveSaleOutNotSale" Label="% to Not Sale"></SfCheckBox></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </Template>
+                        </GridEditSettings>
+                        <GridColumns>
+                            <GridColumn Field=@nameof(TradeActivityDto.TradeActivityId) IsPrimaryKey="true" Visible="false" />
+                            <GridColumn Field=@nameof(TradeActivityDto.ActivityCode) HeaderText="Activity Code" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+
+                            <GridColumn Field=@nameof(TradeActivityDto.ActivityName) HeaderText="Activity Name" Width="250"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+
+
+                            <GridColumn Field=@nameof(TradeActivityDto.ActivityType) HeaderText="Act.Type" TextAlign="@TextAlign.Left" HeaderTextAlign="@TextAlign.Center" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.CheckBox })"
+                                        ClipMode="ClipMode.EllipsisWithTooltip"></GridColumn>
+                            <GridColumn Field=@nameof(TradeActivityDto.GLGroupName) HeaderText="GLGroup" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(TradeActivityDto.GLCode) HeaderText="GL Code" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(TradeActivityDto.Purpose) HeaderText="GL Description" Width="250"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+
+                            <GridColumn Field=@nameof(TradeActivityDto.GLName) HeaderText="GL Short Name" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(TradeActivityDto.IsFixedContract) HeaderText="Fixed Contract" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(TradeActivityDto.IsDeductable) HeaderText="Deductable" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+
+                            <GridColumn Field=@nameof(TradeActivityDto.HaveSaleInTHB) HeaderText="Sale In THB/cs" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(TradeActivityDto.HaveSaleInGrossSale) HeaderText="Sale In Gross Sale" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(TradeActivityDto.HaveSaleInNotSale) HeaderText="Sale In no Sale" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+
+                            <GridColumn Field=@nameof(TradeActivityDto.HaveSaleOutTHB) HeaderText="Sale Out THB/cs" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(TradeActivityDto.HaveSaleOutGrossSale) HeaderText="Sale Out Gross Sale" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(TradeActivityDto.HaveSaleOutNotSale) HeaderText="Sale Out no Sale" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+
+                            <GridColumn Field=@nameof(TradeActivityDto.AbsAmt) HeaderText="Deductable" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+
+                            <GridColumn Field=@nameof(TradeActivityDto.Remark) HeaderText="Remark" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+
+
+                            <GridColumn Field=@nameof(TradeActivityDto.CreatedBy) HeaderText="Created By" Width="180"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(TradeActivityDto.CreatedDate) HeaderText="Created Date" Width="180"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Menu })"></GridColumn>
+                            <GridColumn Field=@nameof(TradeActivityDto.UpdatedBy) HeaderText="Updated By" Width="180"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(TradeActivityDto.UpdatedDate) HeaderText="Updated Date" Width="180"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Menu })"></GridColumn>
+
+                        </GridColumns>
+                    </SfGrid>
+
+                </Body>
+            </Card>
+        </Column>
+    </Row>
+</ContentMain>
+
+
+<style>
+    .table {
+        display: table;
+        width: 80%;
+        margin: .5% auto 0;
+        border-collapse: separate;
+        font-weight: 400;
+    }
+
+    .table_row {
+        display: table-row;
+    }
+
+    .table_small {
+        display: table-cell;
+    }
+
+    .table_row > .table_small > .table_cell {
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+
+    @@media screen and (max-width: 1080px) {
+        .table {
+            width: 90%
+        }
+    }
+</style>

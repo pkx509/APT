@@ -1,0 +1,31 @@
+﻿{
+    "documentTypeId": 1,
+    "documentTypeCode": "FC001",
+    "documentYear": 2020,
+    "documentMonth": 10,
+    "version": 1,
+    "revision": 0,
+    "clientId": 1,
+    "clientCode": "clientCode",
+    "clientName": "clientName",
+    "customerCode": "customerCode",
+    "customerName": "customerName",
+    "channelCode": "channelCode",
+    "channelName": "channelName",
+    "totalSale": 0,
+    "totalInvestment": 0,
+    "currentState": "DRAFT",
+    "nextState": "REVIEW",
+    "fixedContract": {
+        "brandId": 1,
+        "accountId": 1,
+        "productId": 2,
+        "costCenterId": 1,
+        "tradeInvesmentId": 1,
+        "conditionType": "conditionType",
+        "contractCategory": "contractCategory",
+        "contractDesc": "contractDesc",
+        "uom": "Dozen",
+        "dateRefForm": "ref from dksh invoice"
+    }
+}

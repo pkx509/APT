@@ -1,0 +1,11 @@
+﻿@namespace GFCA.WebUI.Components.AdminLte
+@inject IJSRuntime JS
+@inject NavigationManager nav
+@inject NavBarLeftInjectableMenu menu
+<!-- Left navbar links -->
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a @ref="pushButton" class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+    </li>
+    @ChildContent
+</ul>

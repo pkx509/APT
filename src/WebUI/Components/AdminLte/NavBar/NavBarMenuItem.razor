@@ -1,0 +1,15 @@
+﻿@namespace GFCA.WebUI.Components.AdminLte
+<li class="nav-item d-none d-sm-inline-block">
+    <NavLink href="@Link" class="nav-link">@ChildContent</NavLink>
+</li>
+<style>
+    .nav-item p {
+        display: inline;
+    }
+</style>
+@code {
+    [Parameter]
+    public string Link { get; set; } = "#";
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}

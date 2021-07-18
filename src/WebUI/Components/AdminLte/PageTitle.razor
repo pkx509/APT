@@ -1,0 +1,30 @@
+﻿@namespace GFCA.WebUI.Components.AdminLte
+
+@inject IJSRuntime JS
+@if (!Hidden)
+{
+    @Title
+}
+@code {
+    [Parameter]
+    public string Title { get; set; }
+    [Parameter]
+    public bool Hidden { get; set; } = false;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        //base.OnAfterRenderAsync(firstRender);
+        await setTitle();
+    }
+    /*
+    protected override async Task OnInitializedAsync()
+    {
+        await setTitle();
+    }
+    */
+
+    private async Task setTitle()
+    {
+        await JS.InvokeVoidAsync("setTitle", Title);
+    }
+}

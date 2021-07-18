@@ -1,0 +1,159 @@
+﻿@page "/MyInbox/Documents/PromotionGroup"
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.DropDowns;
+@using Syncfusion.Blazor.Navigations
+
+@namespace GFCA.WebUI.Pages.MyInbox.Documents
+
+
+<style>
+    .table {
+        display: table;
+        width: 80%;
+        margin: .5% auto 0;
+        border-collapse: separate;
+        font-weight: 400;
+    }
+
+    .table_row {
+        display: table-row;
+    }
+
+    .table_small {
+        display: table-cell;
+    }
+
+    .table_row > .table_small > .table_cell {
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+
+    @@media screen and (max-width: 1080px) {
+        .table {
+            width: 90%
+        }
+    }
+</style>
+<ContentMain>
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+
+                    <div class="table_row">
+                        <div class="table_small">
+                            <div class="table_cell">Promotion Group</div>
+                        </div>
+                    </div>
+                </Header>
+                <Body>
+
+                    
+                    <div class="e-control e-toolbar e-lib e-keyboard" role="toolbar" aria-orientation="horizontal" aria-haspopup="false" tabindex="0" style="height: auto; width: auto;">
+                        <div class="e-toolbar-items">
+                            <div class="e-toolbar-item" aria-disabled="false" data-index="0" title="Add" padding-left="4px">
+                                <button class="e-control e-btn e-lib e-tbar-btn e-tbtn-txt" type="button" tabindex="-1" style="width:auto"><span class="e-add e-icons e-btn-icon e-icon-left"></span><span class="e-tbar-btn-text">Add</span></button>
+                            </div>
+                            <div class="e-toolbar-item e-overlay" aria-disabled="true" data-index="1" title="Edit">
+                                <button class="e-control e-btn e-lib e-tbar-btn e-tbtn-txt" type="button" tabindex="-1" style="width:auto"><span class="e-edit e-icons e-btn-icon e-icon-left"></span><span class="e-tbar-btn-text">Edit</span></button>
+                            </div>
+                            <div class="e-toolbar-item e-overlay" aria-disabled="true" data-index="2" title="Delete">
+                                <button class="e-control e-btn e-lib e-tbar-btn e-tbtn-txt" type="button" tabindex="-1" style="width:auto"><span class="e-delete e-icons e-btn-icon e-icon-left"></span><span class="e-tbar-btn-text">Delete</span></button>
+                            </div>
+                            <div class="e-toolbar-item e-overlay" aria-disabled="true" data-index="2" title="Copy">
+                                <button class="e-control e-btn e-lib e-tbar-btn e-tbtn-txt" type="button" tabindex="-1" style="width:auto"><span class="e-copy e-icons e-btn-icon e-icon-left"></span><span class="e-tbar-btn-text">Copy</span></button>
+                            </div>
+                            <div class="e-toolbar-item e-overlay" aria-disabled="true" data-index="2" title="export">
+                                <button class="e-control e-btn e-lib e-tbar-btn e-tbtn-txt" type="button" tabindex="-1" style="width:auto"><span class="e-export e-icons e-btn-icon e-icon-left"></span><span class="e-tbar-btn-text">Export</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Channel</th>
+                                <th>Client</th>
+                                <th>Customer</th>
+                                <th>Created By</th>
+                                <th>Created Date</th>
+                                <th>Updated By</th>
+                                <th>Updated Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <NavLink href="/MyInbox/Documents/PromotionGroup/P-20210501-00001" class="nave-link" Match="NavLinkMatch.All">
+                                        P-20210501-00001
+                                    </NavLink>
+                                </td>
+                                <td>Name 1</td>
+                                <td>Description 1</td>
+                                <td>Modern Trade</td>
+                                <td>0001 - FOODS</td>
+                                <td>T01 - TESCO</td>
+                                <td>System</td>
+                                <td>2021-05-01</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <NavLink href="/MyInbox/Documents/PromotionGroup/P-20210501-00002" class="nave-link" Match="NavLinkMatch.All">
+                                        P-20210501-00002
+                                    </NavLink>
+                                </td>
+                                <td>Name 2</td>
+                                <td>Description 2</td>
+                                <td>Modern Trade</td>
+                                <td>0001 - FOODS</td>
+                                <td>T01 - TESCO</td>
+                                <td>System</td>
+                                <td>2021-05-01</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <NavLink href="/MyInbox/Documents/PromotionGroup/P-20210501-00003" class="nave-link" Match="NavLinkMatch.All">
+                                        P-20210501-00003
+                                    </NavLink>
+                                </td>
+                                <td>Name 3</td>
+                                <td>Description 3</td>
+                                <td>Modern Trade</td>
+                                <td>0001 - FOODS</td>
+                                <td>T01 - TESCO</td>
+                                <td>System</td>
+                                <td>2021-05-01</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <NavLink href="/MyInbox/Documents/PromotionGroup/P-20210501-00004" class="nave-link" Match="NavLinkMatch.All">
+                                        P-20210501-00004
+                                    </NavLink>
+                                </td>
+                                <td>Name 4</td>
+                                <td>Description 4</td>
+                                <td>Modern Trade</td>
+                                <td>0001 - FOODS</td>
+                                <td>T01 - TESCO</td>
+                                <td>System</td>
+                                <td>2021-05-01</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </Body>
+            </Card>
+        </Column>
+    </Row>
+</ContentMain>

@@ -1,0 +1,96 @@
+﻿@page "/MyInbox/{workflowState}"
+
+@using Syncfusion.Blazor.Data
+@using Syncfusion.Blazor.Grids
+@using Syncfusion.Blazor.Popups
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Charts
+@using Syncfusion.Blazor.Spinner
+@using GFCA.Shared.Models.Dto
+
+<ContentMain>
+    
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+                    <CardTitle>
+                        <i class="ion ion-clipboard mr-1"></i>
+                        @WorkflowState
+                        @*
+                        <div>
+                            <div class="form-group">
+                                <div class="form-group col-md-6">
+                                    <SfTextBox ID="txtCode" FloatLabelType="FloatLabelType.Always" Placeholder="Code No"></SfTextBox>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <SfTextBox ID="txtName" FloatLabelType="FloatLabelType.Always" Placeholder="Name"></SfTextBox>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group col-md-6">
+                                    <SfTextBox ID="txtSaleOrg" FloatLabelType="FloatLabelType.Always" Placeholder="SaleOrg"></SfTextBox>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <SfTextBox ID="txtDistributionChannel" FloatLabelType="FloatLabelType.Always" Placeholder="Channel"></SfTextBox>
+                                </div>
+                            </div>
+                        </div>
+                        *@
+                    </CardTitle>
+                </Header>
+
+                <Body>
+
+                    <SfGrid @ref="myGridData" TValue="DocumentDto" AllowPaging="true" AllowFiltering="true" AllowSorting="true" Toolbar="@myToolbar">
+                        <GridEvents OnActionComplete="ActionCompleteHandler"
+                                    OnActionBegin="ActionBeginHandler"
+                                    TValue="DocumentDto"></GridEvents>
+                        <SfDataManager AdaptorInstance="@typeof(DocumentService)" Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                        <GridFilterSettings Type="Syncfusion.Blazor.Grids.FilterType.Menu"></GridFilterSettings>
+                        <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true" Mode="@EditMode.Normal"></GridEditSettings>
+
+                        <GridColumns>
+                            <GridColumn Field=@nameof(DocumentDto.DocumentId) HeaderText="DocumentId" IsPrimaryKey="true" TextAlign="@TextAlign.Center" HeaderTextAlign="@TextAlign.Center" Width="140"
+                                        ValidationRules="@(new ValidationRules{ Required=true, Number=true})"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.CheckBox })"
+                                        ClipMode="ClipMode.EllipsisWithTooltip"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.ReferenceNo) HeaderText="DocumentNo" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.DocumentTypeId) HeaderText="DocumentType" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Menu })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.DocumentYear) HeaderText="DocumentYear" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.DocumentMonth) HeaderText="DocumentMonth" Width="150"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.ClientCode) HeaderText="ClientNo" Width="150" Format="N0"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.ClientName) HeaderText="ClientName" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.CustomerCode) HeaderText="CustomerNo" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.CustomerName) HeaderText="CustomerName" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.TotalSale) HeaderText="TotalSale" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.TotalInvestment) HeaderText="TotalInvestment" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+
+                            <GridColumn Field=@nameof(DocumentDto.CurrentState) HeaderText="Status" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+
+                            <GridColumn Field=@nameof(DocumentDto.CreatedBy) HeaderText="CreatedBy" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.CreatedDate) HeaderText="CreatedDate" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.UpdatedBy) HeaderText="UpdatedBy" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(DocumentDto.UpdatedDate) HeaderText="UpdatedDate" Width="150"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                        </GridColumns>
+                    </SfGrid>
+
+                </Body>
+            </Card>
+        </Column>
+    </Row>
+</ContentMain>

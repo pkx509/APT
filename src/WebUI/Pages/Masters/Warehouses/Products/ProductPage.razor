@@ -1,0 +1,175 @@
+@page "/Master/Warehouses/Products"
+@using Syncfusion.Blazor.Data
+@using Syncfusion.Blazor.Grids
+@using Syncfusion.Blazor.Popups
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Charts
+@using Syncfusion.Blazor.Spinner
+@using GFCA.Shared.Models.Dto
+
+@namespace GFCA.WebUI.Pages.Masters.Warehouses.Products
+
+<ContentMain>
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+                    <CardTitle>
+                        <i class="ion ion-clipboard mr-1"></i>
+                        Product Masters
+                    </CardTitle>
+                </Header>
+                <Body>
+
+                    <SfGrid TValue="ProductDto" AllowPaging="true" AllowFiltering="true" AllowSorting="true" Toolbar="@(new string[] { "Add", "Edit", "Delete" })">
+                        <SfDataManager AdaptorInstance="@typeof(ProductService)" Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                        <GridEvents OnActionComplete="ActionCompleteHandler" TValue="ProductDto"></GridEvents>
+                        <GridFilterSettings Type="Syncfusion.Blazor.Grids.FilterType.Menu"></GridFilterSettings>
+                        <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true" Mode="@EditMode.Dialog" Dialog="DialogParams">
+                            <Template>
+                                @{
+                                    var model = (context as ProductDto);
+                                }
+                                <div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtProductCode" @bind-Value="@(model.ProductCode)" Enabled="@(EnabledAdd)" FloatLabelType="FloatLabelType.Always" Placeholder="Product Code"></SfTextBox>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtName" @bind-Value="@(model.ProductName)" FloatLabelType="FloatLabelType.Always" Placeholder="Name"></SfTextBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtProductCategoryName" @bind-Value="@(model.ProductCategoryName)" FloatLabelType="FloatLabelType.Always" Placeholder="ProductCategoryName"></SfTextBox>
+                                        </div>
+                                        <div class="form-group col-md-6">
+
+                                            <SfComboBox TValue="int?"
+                                                        TItem="BrandDto"
+                                                        FloatLabelType="FloatLabelType.Never"
+                                                        Placeholder="Select a Brand"
+                                                        CssClass="e-multi-column"
+                                                        AllowFiltering="true"
+                                                        PopupHeight="300px"
+                                                        @bind-Value="@((context as ProductDto).BrandId)"
+                                                        >
+                                                <SfDataManager AdaptorInstance="@typeof(GFCA.WebUI.Pages.Masters.Warehouses.Brands.BrandService)" Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                                                <ComboBoxFieldSettings Text="BrandName" Value="BrandId"></ComboBoxFieldSettings>
+
+                                                <ComboBoxTemplates TItem="BrandDto">
+                                                    <ActionFailureTemplate>
+                                                        <span class="norecord">Fetching data failed!</span>
+                                                    </ActionFailureTemplate>
+                                                    <NoRecordsTemplate>
+                                                        <span class="norecord">No Data Available!</span>
+                                                    </NoRecordsTemplate>
+
+                                                    <HeaderTemplate>
+                                                        <table class="table">
+                                                            <tr>
+                                                                <th class="combo-name">Code</th>
+                                                                <th class="combo-desc">Name</th>
+                                                            </tr>
+                                                        </table>
+                                                    </HeaderTemplate>
+                                                    <ItemTemplate Context="diaxConx1">
+                                                        @{
+                                                            var model1 = (diaxConx1 as BrandDto);
+                                                        }
+                                                        <table class="table">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="combo-name">@(model1.BrandCode)</td>
+                                                                    <td class="combo-desc">@(model1.BrandName)</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </ItemTemplate>
+                                                </ComboBoxTemplates>
+                                            </SfComboBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtSKU" @bind-Value="@(model.SKU)" FloatLabelType="FloatLabelType.Always" Placeholder="SKU"></SfTextBox>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtColor" @bind-Value="@(model.Color)" FloatLabelType="FloatLabelType.Always" Placeholder="Color"></SfTextBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <SfNumericTextBox ID="txtHeight" @bind-Value="@(model.Height)" TValue="decimal?" FloatLabelType="FloatLabelType.Always" Placeholder="Height"></SfNumericTextBox>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <SfNumericTextBox ID="txtWeight" @bind-Value="@(model.Weight)" TValue="decimal?" FloatLabelType="FloatLabelType.Always" Placeholder="Weight"></SfNumericTextBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtShape" @bind-Value="@(model.Shape)" FloatLabelType="FloatLabelType.Always" Placeholder="Shape"></SfTextBox>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtSize" @bind-Value="@(model.Size)" FloatLabelType="FloatLabelType.Always" Placeholder="Size"></SfTextBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <SfNumericTextBox ID="txtQTY" @bind-Value="@(model.QTY)" TValue="int?" FloatLabelType="FloatLabelType.Always" Placeholder="QTY"></SfNumericTextBox>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <SfTextBox ID="txtSize" @bind-Value="@(model.UOM)" FloatLabelType="FloatLabelType.Always" Placeholder="Size"></SfTextBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <SfNumericTextBox ID="txtLTP" @bind-Value="@(model.LTP)" TValue="decimal?" FloatLabelType="FloatLabelType.Always" Placeholder="LTP"></SfNumericTextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Template>
+                        </GridEditSettings>
+                        <GridColumns>
+                            <GridColumn Field=@nameof(ProductDto.ProductId) IsPrimaryKey="true" Visible="false" />
+                            <GridColumn Field=@nameof(ProductDto.BrandName) HeaderText="Brand" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(ProductDto.ProductCategoryName) HeaderText="Category" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(ProductDto.ProductName) HeaderText="Name" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(ProductDto.SKU) HeaderText="SKU" Width="200"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(ProductDto.Color) HeaderText="Color" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(ProductDto.Weight) HeaderText="Weight" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(ProductDto.Height) HeaderText="Height" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(ProductDto.Shape) HeaderText="Shape" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(ProductDto.Size) HeaderText="Size" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(ProductDto.UOM) HeaderText="UOM" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(ProductDto.QTY) HeaderText="QTY" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(ProductDto.LTP) HeaderText="LTP" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+
+                            <GridColumn Field=@nameof(ProductDto.CreatedBy) HeaderText="Created By" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(ProductDto.CreatedDate) HeaderText="Created Date" Width="100"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Menu })"></GridColumn>
+                            <GridColumn Field=@nameof(ProductDto.UpdatedBy) HeaderText="Updated By" Width="80"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(ProductDto.UpdatedDate) HeaderText="Updated Date" Width="80"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                        </GridColumns>
+                    </SfGrid>
+
+                </Body>
+            </Card>
+        </Column>
+    </Row>
+</ContentMain>

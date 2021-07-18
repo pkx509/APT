@@ -1,0 +1,111 @@
+﻿@page "/Master/Accountants/GLGroups"
+
+@namespace GFCA.WebUI.Pages.Masters.Accountants.GLGroups
+
+<ContentMain>
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+                    <CardTitle>
+                        <i class="ion ion-clipboard mr-1"></i>
+                        GL Group Masters
+                    </CardTitle>
+                </Header>
+                <Body>
+
+                    <SfGrid TValue="GLGroupDto" AllowPaging="true" AllowFiltering="true" AllowSorting="true" Toolbar="@(new string[] { "Add", "Edit", "Delete" })">
+                        <SfDataManager AdaptorInstance="@typeof(GLGroupService)" Adaptor="Syncfusion.Blazor.Adaptors.CustomAdaptor"></SfDataManager>
+                        <GridEvents OnActionComplete="ActionCompleteHandler" TValue="GLGroupDto"></GridEvents>
+                        <GridFilterSettings Type="Syncfusion.Blazor.Grids.FilterType.Menu"></GridFilterSettings>
+                        <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true" Mode="@EditMode.Dialog" Dialog="DialogParams" ShowDeleteConfirmDialog="true">
+                            <Template>
+                                @{
+                                    var model = (context as GLGroupDto);
+                                }
+                                <div>
+
+                                    <div class="table">
+
+                                        <div class="table_row">
+                                            <div class="table_small">
+                                                <div class="table_cell">Group</div>
+                                            </div>
+                                            <div class="table_small">
+                                                <div class="table_cell">
+                                                    <SfTextBox ID="txtGroupName" @bind-Value="model.GroupName" FloatLabelType="FloatLabelType.Never" Placeholder="Group Name"></SfTextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="table_row">
+                                            <div class="table_small">
+                                                <div class="table_cell">Policy</div>
+                                            </div>
+                                            <div class="table_small">
+                                                <div class="table_cell">
+                                                    <SfTextBox ID="txtGroupPolicy" @bind-Value="model.GroupPolicy" FloatLabelType="FloatLabelType.Never" Placeholder="Group Policy"></SfTextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Template>
+                        </GridEditSettings>
+                        <GridColumns>
+                            <GridColumn Field=@nameof(GLGroupDto.GroupId) IsPrimaryKey="true" Visible="false" />
+                            <GridColumn Field=@nameof(GLGroupDto.GroupName) HeaderText="Group Name" TextAlign="@TextAlign.Left" HeaderTextAlign="@TextAlign.Center" Width="250"
+                                        ValidationRules="@(new ValidationRules{ Required=true })"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"
+                                        ClipMode="ClipMode.EllipsisWithTooltip"></GridColumn>
+                            <GridColumn Field=@nameof(GLGroupDto.GroupPolicy) HeaderText="Policy" Width="250"
+                                        ValidationRules="@(new ValidationRules{ Required=false})"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+
+
+                            <GridColumn Field=@nameof(GLGroupDto.CreatedBy) HeaderText="Created By" Width="180"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(GLGroupDto.CreatedDate) HeaderText="Created Date" Width="180"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Menu })"></GridColumn>
+                            <GridColumn Field=@nameof(GLGroupDto.UpdatedBy) HeaderText="Updated By" Width="180"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Excel })"></GridColumn>
+                            <GridColumn Field=@nameof(GLGroupDto.UpdatedDate) HeaderText="Updated Date" Width="180"
+                                        FilterSettings="@(new FilterSettings { Type = Syncfusion.Blazor.Grids.FilterType.Menu })"></GridColumn>
+
+                        </GridColumns>
+                    </SfGrid>
+
+                </Body>
+            </Card>
+        </Column>
+    </Row>
+</ContentMain>
+
+<style>
+    .table {
+        display: table;
+        width: 80%;
+        margin: .5% auto 0;
+        border-collapse: separate;
+        font-weight: 400;
+    }
+
+    .table_row {
+        display: table-row;
+    }
+
+    .table_small {
+        display: table-cell;
+    }
+
+    .table_row > .table_small > .table_cell {
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+
+    @@media screen and (max-width: 1080px) {
+        .table {
+            width: 90%
+        }
+    }
+</style>

@@ -1,0 +1,3860 @@
+{
+  "x-generator": "NSwag v13.10.6.0 (NJsonSchema v10.3.8.0 (Newtonsoft.Json v12.0.0.0))",
+  "openapi": "3.0.0",
+  "info": {
+    "title": "GFCA API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/Channel": {
+      "get": {
+        "tags": [
+          "Channel"
+        ],
+        "operationId": "Channel_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChannelVm"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Channel"
+        ],
+        "operationId": "Channel_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateChannelCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Channel/{id}": {
+      "put": {
+        "tags": [
+          "Channel"
+        ],
+        "operationId": "Channel_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateChannelCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Channel"
+        ],
+        "operationId": "Channel_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/TradeActivity": {
+      "get": {
+        "tags": [
+          "TradeActivity"
+        ],
+        "operationId": "TradeActivity_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TradeActivityVm"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "TradeActivity"
+        ],
+        "operationId": "TradeActivity_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTradeActivityCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/TradeActivity/{id}": {
+      "put": {
+        "tags": [
+          "TradeActivity"
+        ],
+        "operationId": "TradeActivity_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTradeActivityCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "TradeActivity"
+        ],
+        "operationId": "TradeActivity_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DocumentType": {
+      "get": {
+        "tags": [
+          "DocumentType"
+        ],
+        "operationId": "DocumentType_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentTypeVm"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "DocumentType"
+        ],
+        "operationId": "DocumentType_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDocumentTypeCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DocumentType/{id}": {
+      "put": {
+        "tags": [
+          "DocumentType"
+        ],
+        "operationId": "DocumentType_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDocumentTypeCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "DocumentType"
+        ],
+        "operationId": "DocumentType_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/GLGroup": {
+      "get": {
+        "tags": [
+          "GLGroup"
+        ],
+        "operationId": "GLGroup_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GLGroupVm"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "GLGroup"
+        ],
+        "operationId": "GLGroup_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateGLGroupCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/GLGroup/{id}": {
+      "put": {
+        "tags": [
+          "GLGroup"
+        ],
+        "operationId": "GLGroup_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateGLGroupCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "GLGroup"
+        ],
+        "operationId": "GLGroup_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/CostCenter": {
+      "get": {
+        "tags": [
+          "CostCenter"
+        ],
+        "operationId": "CostCenter_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CostCenterVm"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CostCenter"
+        ],
+        "operationId": "CostCenter_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCostCenterCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/CostCenter/{id}": {
+      "put": {
+        "tags": [
+          "CostCenter"
+        ],
+        "operationId": "CostCenter_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCostCenterCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CostCenter"
+        ],
+        "operationId": "CostCenter_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/GLAccount": {
+      "get": {
+        "tags": [
+          "GLAccount"
+        ],
+        "operationId": "GLAccount_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GLAccountVm"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "GLAccount"
+        ],
+        "operationId": "GLAccount_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateGLAccountCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/GLAccount/{id}": {
+      "put": {
+        "tags": [
+          "GLAccount"
+        ],
+        "operationId": "GLAccount_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateGLAccountCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "GLAccount"
+        ],
+        "operationId": "GLAccount_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Customer": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerVm"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCustomerCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Customer/{id}": {
+      "put": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCustomerCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Supplier": {
+      "get": {
+        "tags": [
+          "Supplier"
+        ],
+        "operationId": "Supplier_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplierVm"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Supplier"
+        ],
+        "operationId": "Supplier_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSupplierCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Supplier/{id}": {
+      "put": {
+        "tags": [
+          "Supplier"
+        ],
+        "operationId": "Supplier_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSupplierCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Supplier"
+        ],
+        "operationId": "Supplier_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Document": {
+      "get": {
+        "tags": [
+          "Document"
+        ],
+        "operationId": "Document_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentVm"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Document"
+        ],
+        "operationId": "Document_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDocumentCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Document/{id}": {
+      "put": {
+        "tags": [
+          "Document"
+        ],
+        "operationId": "Document_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDocumentCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Document"
+        ],
+        "operationId": "Document_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Company": {
+      "get": {
+        "tags": [
+          "Company"
+        ],
+        "operationId": "Company_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyVm"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Company"
+        ],
+        "operationId": "Company_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCompanyCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Company/{id}": {
+      "put": {
+        "tags": [
+          "Company"
+        ],
+        "operationId": "Company_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCompanyCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Company"
+        ],
+        "operationId": "Company_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Department": {
+      "get": {
+        "tags": [
+          "Department"
+        ],
+        "operationId": "Department_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DepartmentVm"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Department"
+        ],
+        "operationId": "Department_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDepartmentCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Department/{id}": {
+      "put": {
+        "tags": [
+          "Department"
+        ],
+        "operationId": "Department_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDepartmentCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Department"
+        ],
+        "operationId": "Department_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Employee": {
+      "get": {
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "Employee_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeVm"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "Employee_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEmployeeCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Employee/{id}": {
+      "put": {
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "Employee_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateEmployeeCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "Employee_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Brand": {
+      "get": {
+        "tags": [
+          "Brand"
+        ],
+        "operationId": "Brand_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BrandVm"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Brand"
+        ],
+        "operationId": "Brand_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBrandCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Brand/{id}": {
+      "put": {
+        "tags": [
+          "Brand"
+        ],
+        "operationId": "Brand_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBrandCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Brand"
+        ],
+        "operationId": "Brand_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ProductCategory": {
+      "get": {
+        "tags": [
+          "ProductCategory"
+        ],
+        "operationId": "ProductCategory_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductCategoryVm"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ProductCategory"
+        ],
+        "operationId": "ProductCategory_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProductCategoryCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ProductCategory/{id}": {
+      "put": {
+        "tags": [
+          "ProductCategory"
+        ],
+        "operationId": "ProductCategory_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProductCategoryCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ProductCategory"
+        ],
+        "operationId": "ProductCategory_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Product": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "operationId": "Product_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductVm"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "operationId": "Product_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProductCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Product/{id}": {
+      "put": {
+        "tags": [
+          "Product"
+        ],
+        "operationId": "Product_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProductCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Product"
+        ],
+        "operationId": "Product_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Workflow": {
+      "get": {
+        "tags": [
+          "Workflow"
+        ],
+        "operationId": "Workflow_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkflowVm"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Authentication/logout": {
+      "get": {
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "Authentication_Logout",
+        "parameters": [
+          {
+            "name": "logoutId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/EmailInbound": {
+      "get": {
+        "tags": [
+          "EmailInbound"
+        ],
+        "operationId": "EmailInbound_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetEmailInboundQueryResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "EmailInbound"
+        ],
+        "operationId": "EmailInbound_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEmailInboundCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/EmailInbound/{id}": {
+      "get": {
+        "tags": [
+          "EmailInbound"
+        ],
+        "operationId": "EmailInbound_Get2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetEmailInboundQueryResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "EmailInbound"
+        ],
+        "operationId": "EmailInbound_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateEmailInboundCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "EmailInbound"
+        ],
+        "operationId": "EmailInbound_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/_configuration/{clientId}": {
+      "get": {
+        "tags": [
+          "OidcConfiguration"
+        ],
+        "operationId": "OidcConfiguration_GetClientRequestParameters",
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ChannelVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Channels": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ChannelDto"
+            }
+          }
+        }
+      },
+      "ChannelDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableDtoBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ChannelId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ChannelCode": {
+                "type": "string",
+                "nullable": true
+              },
+              "ChannelName": {
+                "type": "string",
+                "nullable": true
+              },
+              "ChannelDesc": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "AuditableDtoBase": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "CreatedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreatedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "UpdatedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "UpdatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "CreateChannelCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ChannelDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UpdateChannelCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ChannelDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "TradeActivityVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "TradeActivities": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/TradeActivityDto"
+            }
+          }
+        }
+      },
+      "TradeActivityDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableDtoBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "TradeActivityId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "ActivityType": {
+                "type": "string",
+                "nullable": true
+              },
+              "ActivityCode": {
+                "type": "string",
+                "nullable": true
+              },
+              "ActivityName": {
+                "type": "string",
+                "nullable": true
+              },
+              "GLGroupId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "GLGroupName": {
+                "type": "string",
+                "nullable": true
+              },
+              "AccountId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "GLCode": {
+                "type": "string",
+                "nullable": true
+              },
+              "GLName": {
+                "type": "string",
+                "nullable": true
+              },
+              "Purpose": {
+                "type": "string",
+                "nullable": true
+              },
+              "Value": {
+                "type": "string",
+                "nullable": true
+              },
+              "Remark": {
+                "type": "string",
+                "nullable": true
+              },
+              "IsFixedContract": {
+                "type": "boolean"
+              },
+              "IsDeductable": {
+                "type": "boolean"
+              },
+              "HaveSaleInTHB": {
+                "type": "boolean"
+              },
+              "HaveSaleInGrossSale": {
+                "type": "boolean"
+              },
+              "HaveSaleInNotSale": {
+                "type": "boolean"
+              },
+              "HaveSaleOutTHB": {
+                "type": "boolean"
+              },
+              "HaveSaleOutGrossSale": {
+                "type": "boolean"
+              },
+              "HaveSaleOutNotSale": {
+                "type": "boolean"
+              },
+              "AbsAmt": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "CreateTradeActivityCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TradeActivityDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UpdateTradeActivityCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TradeActivityDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "DocumentTypeVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "DocumentTypes": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/DocumentTypeDto"
+            }
+          }
+        }
+      },
+      "DocumentTypeDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableDtoBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "DocumentTypeId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "WorkflowId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "DocumentTypeCode": {
+                "type": "string",
+                "nullable": true
+              },
+              "DocumentTypeName": {
+                "type": "string",
+                "nullable": true
+              },
+              "DocumentTypeDesc": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CreateDocumentTypeCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DocumentTypeDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UpdateDocumentTypeCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DocumentTypeDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "GLGroupVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "GLGroups": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GLGroupDto"
+            }
+          }
+        }
+      },
+      "GLGroupDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableDtoBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "GroupId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "GroupPolicy": {
+                "type": "string",
+                "nullable": true
+              },
+              "GroupName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CreateGLGroupCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GLGroupDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UpdateGLGroupCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GLGroupDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "CostCenterVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "CostCenters": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/CostCenterDto"
+            }
+          }
+        }
+      },
+      "CostCenterDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableDtoBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "CostCenterId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "CostCenterCode": {
+                "type": "string",
+                "nullable": true
+              },
+              "CostCenterName": {
+                "type": "string",
+                "nullable": true
+              },
+              "Site": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CreateCostCenterCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CostCenterDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UpdateCostCenterCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CostCenterDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "GLAccountVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Accounts": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GLAccountDto"
+            }
+          }
+        }
+      },
+      "GLAccountDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableDtoBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "AccountId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "GLGroupId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "GLGroupName": {
+                "type": "string",
+                "nullable": true
+              },
+              "GLCode": {
+                "type": "string",
+                "nullable": true
+              },
+              "GLName": {
+                "type": "string",
+                "nullable": true
+              },
+              "Purpose": {
+                "type": "string",
+                "nullable": true
+              },
+              "Remark": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CreateGLAccountCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GLAccountDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UpdateGLAccountCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GLAccountDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "CustomerVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Customers": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/CustomerDto"
+            }
+          }
+        }
+      },
+      "CustomerDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableDtoBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "CustomerId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "CustomerCode": {
+                "type": "string",
+                "nullable": true
+              },
+              "CustomerName": {
+                "type": "string",
+                "nullable": true
+              },
+              "CustomerGroup": {
+                "type": "string",
+                "nullable": true
+              },
+              "ShortName": {
+                "type": "string",
+                "nullable": true
+              },
+              "AccountNo": {
+                "type": "string",
+                "nullable": true
+              },
+              "SalesBy": {
+                "type": "string",
+                "nullable": true
+              },
+              "Suppliers": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/SupplierDto"
+                }
+              },
+              "Channels": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ChannelDto"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "SupplierDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableDtoBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "SupplierId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "SupplierCode": {
+                "type": "string",
+                "nullable": true
+              },
+              "SupplierName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CreateCustomerCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomerDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UpdateCustomerCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomerDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SupplierVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Suppliers": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SupplierDto"
+            }
+          }
+        }
+      },
+      "CreateSupplierCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SupplierDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UpdateSupplierCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SupplierDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "DocumentVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Documents": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/DocumentDto"
+            }
+          }
+        }
+      },
+      "DocumentDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "DocumentId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "DocumentTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ReferenceNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "DocumentYear": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DocumentMonth": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Version": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Revision": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ClientId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ClientCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "ClientName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomerId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CustomerCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ChannelId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ChannelCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "ChannelName": {
+            "type": "string",
+            "nullable": true
+          },
+          "TotalSale": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "TotalInvestment": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "CurrentStateId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "NextStateId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CurrentState": {
+            "type": "string",
+            "nullable": true
+          },
+          "NextState": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreatedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreatedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "UpdatedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "UpdatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "FixedContracts": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/FixedContractDto"
+            }
+          },
+          "Budgets": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BudgetDto"
+            }
+          },
+          "SaleForecasts": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SaleForecastDto"
+            }
+          }
+        }
+      },
+      "FixedContractDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "FixedContractId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "AccountId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "BrandId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ProductId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CostCenterId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TradeInvesmentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DocumentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ConditionType": {
+            "type": "string",
+            "nullable": true
+          },
+          "ContractCategory": {
+            "type": "string",
+            "nullable": true
+          },
+          "ContractDesc": {
+            "type": "string",
+            "nullable": true
+          },
+          "UOM": {
+            "type": "string",
+            "nullable": true
+          },
+          "DateRefForm": {
+            "type": "string",
+            "nullable": true
+          },
+          "M01JAN": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M02FEB": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M03MAR": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M04APR": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M05MAY": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M06JUN": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M07JUL": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M08AUG": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M09SEP": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M10OCT": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M11NOV": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M12DEC": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          }
+        }
+      },
+      "BudgetDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "BudgetId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ActualLastYear": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "BudgetValue": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "BudgetTargetInYear": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "PercentContribution": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "SaleInvesment": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "BrandId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "DocumentId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "BudgetTypeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CostCenterId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CenterName": {
+            "type": "string",
+            "nullable": true
+          },
+          "SourceFundId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "FundName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "SaleForecastDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "SaleForecastId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ForecastType": {
+            "type": "string",
+            "nullable": true
+          },
+          "M01JAN": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M02FEB": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M03MAR": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M04APR": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M05MAY": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M06JUN": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M07JUL": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M08AUG": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M09SEP": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M10OCT": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M11NOV": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "M12DEC": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "DocumentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ProductId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ProductCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "BrandId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "BrandCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "BrandName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CreateDocumentCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DocumentDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UpdateDocumentCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DocumentDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "CompanyVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Companies": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/CompanyDto"
+            }
+          }
+        }
+      },
+      "CompanyDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableDtoBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "CompanyId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "CompanyCode": {
+                "type": "string",
+                "nullable": true
+              },
+              "CompanyName": {
+                "type": "string",
+                "nullable": true
+              },
+              "CompanySite": {
+                "type": "string",
+                "nullable": true
+              },
+              "Address": {
+                "type": "string",
+                "nullable": true
+              },
+              "Cost": {
+                "type": "number",
+                "format": "decimal",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CreateCompanyCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CompanyDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UpdateCompanyCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CompanyDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "DepartmentVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Departments": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/DepartmentDto"
+            }
+          }
+        }
+      },
+      "DepartmentDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableDtoBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "DepartmentId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "BranchCode": {
+                "type": "string",
+                "nullable": true
+              },
+              "BranchName": {
+                "type": "string",
+                "nullable": true
+              },
+              "Company": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/CompanyDto"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "CreateDepartmentCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DepartmentDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UpdateDepartmentCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DepartmentDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "EmployeeVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Employees": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/EmployeeDto"
+            }
+          }
+        }
+      },
+      "EmployeeDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableDtoBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "EmployeeId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "EmployeeCode": {
+                "type": "string",
+                "nullable": true
+              },
+              "Prefix": {
+                "type": "string",
+                "nullable": true
+              },
+              "FirstName": {
+                "type": "string",
+                "nullable": true
+              },
+              "LastName": {
+                "type": "string",
+                "nullable": true
+              },
+              "Position": {
+                "type": "string",
+                "nullable": true
+              },
+              "Email": {
+                "type": "string",
+                "nullable": true
+              },
+              "Department": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/DepartmentDto"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "CreateEmployeeCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/EmployeeDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UpdateEmployeeCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/EmployeeDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BrandVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Brands": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BrandDto"
+            }
+          }
+        }
+      },
+      "BrandDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableDtoBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "BrandId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "BrandCode": {
+                "type": "string",
+                "nullable": true
+              },
+              "BrandName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CreateBrandCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BrandDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UpdateBrandCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BrandDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ProductCategoryVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ProductCategories": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ProductCategoryDto"
+            }
+          }
+        }
+      },
+      "ProductCategoryDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableDtoBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ProductCategoryId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ProductCategoryCode": {
+                "type": "string",
+                "nullable": true
+              },
+              "ProductCategoryName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CreateProductCategoryCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ProductCategoryDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UpdateProductCategoryCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ProductCategoryDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ProductVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Products": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ProductDto"
+            }
+          }
+        }
+      },
+      "ProductDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableDtoBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ProductId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ProductCode": {
+                "type": "string",
+                "nullable": true
+              },
+              "ProductName": {
+                "type": "string",
+                "nullable": true
+              },
+              "SKU": {
+                "type": "string",
+                "nullable": true
+              },
+              "Color": {
+                "type": "string",
+                "nullable": true
+              },
+              "Width": {
+                "type": "number",
+                "format": "decimal",
+                "nullable": true
+              },
+              "Height": {
+                "type": "number",
+                "format": "decimal",
+                "nullable": true
+              },
+              "Weight": {
+                "type": "number",
+                "format": "decimal",
+                "nullable": true
+              },
+              "Shape": {
+                "type": "string",
+                "nullable": true
+              },
+              "Size": {
+                "type": "string",
+                "nullable": true
+              },
+              "QTY": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "UOM": {
+                "type": "string",
+                "nullable": true
+              },
+              "LTP": {
+                "type": "number",
+                "format": "decimal",
+                "nullable": true
+              },
+              "BrandId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "BrandCode": {
+                "type": "string",
+                "nullable": true
+              },
+              "BrandName": {
+                "type": "string",
+                "nullable": true
+              },
+              "ProductCategoryId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ProductCategoryName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CreateProductCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ProductDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UpdateProductCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ProductDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "WorkflowVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Workflows": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/WorkflowDto"
+            }
+          }
+        }
+      },
+      "WorkflowDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "WorkflowId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "WorkflowName": {
+            "type": "string",
+            "nullable": true
+          },
+          "WorkflowDesc": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "GetEmailInboundQueryResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Result"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "Items": {
+                "nullable": true
+              },
+              "Count": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "Result": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Succeeded": {
+            "type": "boolean"
+          },
+          "Errors": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "CreateEmailInboundCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "EmailID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "FromEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "DataPath": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "Remark": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "UpdateEmailInboundCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "EmailID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "FromEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "DataPath": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "Remark": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "JWT": {
+        "type": "apiKey",
+        "description": "Type into the textbox: Bearer {your JWT token}.",
+        "name": "Authorization",
+        "in": "header",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "http://localhost:5001/api/authorize",
+            "tokenUrl": "http://localhost:5001/api/token"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "JWT": []
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+﻿@page "/MyInbox/Documents/PromotionOverview"
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.DropDowns;
+@using Syncfusion.Blazor.Navigations
+
+@namespace GFCA.WebUI.Pages.MyInbox.Documents
+
+@inject NavigationManager nav
+<style>
+    div.table {
+        display: table;
+        width: 80%;
+        margin: .5% auto 0;
+        border-collapse: separate;
+        font-weight: 400;
+    }
+
+    .table_row {
+        display: table-row;
+    }
+
+    .table_small {
+        display: table-cell;
+    }
+
+    .table_row > .table_small > .table_cell {
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+
+    @@media screen and (max-width: 1080px) {
+        .table {
+            width: 90%
+        }
+    }
+</style>
+
+<ContentMain>
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+
+                    <div class="table_row">
+                        <div class="table_small">
+                            <div class="table_cell">Promotion Overview </div>
+                        </div>
+                    </div>
+
+                </Header>
+                <Body>
+
+                    <div class="table">
+
+                        <div class="table_row">
+
+                            <div class="table_small"><div class="table_cell">Customer :</div></div>
+                            <div class="table_small"><div class="table_cell"><input /></div></div>
+                            <div class="table_small"><div class="table_cell">Promo Name :</div></div>
+                            <div class="table_small"><div class="table_cell"><input /></div></div>
+                            <div class="table_small"><div class="table_cell">Status :</div></div>
+                            <div class="table_small">
+                                <div class="table_cell">
+                                    <select name="status">
+                                        <option value="Draft">Draft</option>
+                                        <option value="Pending Revision">Pending Revistion</option>
+                                        <option value="Pending Approve">Pending Approve</option>
+                                        <option value="Approved">Approved</option>
+                                        <option value="Rejected">Rejected</option>
+                                        <option value="Cancelled">Cancelled</option>
+                                        <option value="Executed">Executed</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_row">
+
+                            <div class="table_small"><div class="table_cell">Promo Start Date :</div></div>
+                            <div class="table_small"><div class="table_cell"><input type="date" /></div></div>
+                            <div class="table_small"><div class="table_cell">Promo End Date :</div></div>
+                            <div class="table_small"><div class="table_cell"><input type="date" /></div></div>
+
+                        </div>
+                        <div class="table_row">
+
+                            <div class="table_small"><div class="table_cell">Buying Start Date :</div></div>
+                            <div class="table_small"><div class="table_cell"><input type="date" /></div></div>
+                            <div class="table_small"><div class="table_cell">Buying End Date :</div></div>
+                            <div class="table_small"><div class="table_cell"><input type="date" /></div></div>
+
+                        </div>
+                        <div class="table_row">
+
+                            <div class="table_small"><div class="table_cell"><input type="button" class="btn btn-primary" value="Reset" /></div></div>
+                            <div class="table_small"><div class="table_cell"><input type="button" class="btn btn-primary" value="Search" /></div></div>
+
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="container-fluid" style="border:thin double black; padding: 10px 10px 0px 10px;">
+                        <div class="row">
+                            <div class="col-sm col-12">
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Reference No.</th>
+                                            <th>Customer</th>
+                                            <th>Promo Name</th>
+                                            <th>Promo Period</th>
+                                            <th>Channel</th>
+                                            <th>Status</th>
+                                            <th>Total Estimated Sales (THB)</th>
+                                            <th>Total Estimated Invesment (THB)</th>
+
+                                            <th>Created By</th>
+                                            <th>Created Date</th>
+                                            <th>Updated By</th>
+                                            <th>Updated Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <NavLink href="/MyInbox/Documents/PromotionPlanning/PD-XXX-20210519-00001-00" class="nave-link" Match="NavLinkMatch.All">
+                                                    PD-XXX-20210519-00001-00
+                                                </NavLink>
+                                            </td>
+                                            <td>001 - 7-ELEVEN</td>
+                                            <td>New Store Jan - Dec 2021</td>
+                                            <td>2021-01-01 to 2021-12-31</td>
+                                            <td>MT - Modern Trade</td>
+                                            <td>Executed</td>
+                                            <td>29,7790,057.60</td>
+                                            <td>48,000.00</td>
+
+                                            <td>System</td>
+                                            <td>2021-05-01</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <NavLink href="/MyInbox/Documents/PromotionPlanning/PD-XXX-20210519-00001-00" class="nave-link" Match="NavLinkMatch.All">
+                                                    PD-XXX-20210519-00001-00
+                                                </NavLink>
+                                            </td>
+                                            <td>001 - 7-ELEVEN</td>
+                                            <td>New Store Jan - Dec 2021</td>
+                                            <td>2021-01-01 to 2021-12-31</td>
+                                            <td>MT - Modern Trade</td>
+                                            <td>Executed</td>
+                                            <td>29,7790,057.60</td>
+                                            <td>48,000.00</td>
+
+                                            <td>System</td>
+                                            <td>2021-05-01</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <NavLink href="/MyInbox/Documents/PromotionPlanning/PD-XXX-20210519-00001-00" class="nave-link" Match="NavLinkMatch.All">
+                                                    PD-XXX-20210519-00001-00
+                                                </NavLink>
+                                            </td>
+                                            <td>001 - 7-ELEVEN</td>
+                                            <td>New Store Jan - Dec 2021</td>
+                                            <td>2021-01-01 to 2021-12-31</td>
+                                            <td>MT - Modern Trade</td>
+                                            <td>Executed</td>
+                                            <td>29,7790,057.60</td>
+                                            <td>48,000.00</td>
+
+                                            <td>System</td>
+                                            <td>2021-05-01</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <NavLink href="/MyInbox/Documents/PromotionPlanning/PD-XXX-20210519-00001-00" class="nave-link" Match="NavLinkMatch.All">
+                                                    PD-XXX-20210519-00001-00
+                                                </NavLink>
+                                            </td>
+                                            <td>001 - 7-ELEVEN</td>
+                                            <td>New Store Jan - Dec 2021</td>
+                                            <td>2021-01-01 to 2021-12-31</td>
+                                            <td>MT - Modern Trade</td>
+                                            <td>Executed</td>
+                                            <td>29,7790,057.60</td>
+                                            <td>48,000.00</td>
+
+                                            <td>System</td>
+                                            <td>2021-05-01</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </Body>
+                <Footer>
+                    <NavLink href="/MyInbox/Documents/PromotionGroup/P-20210501-00001" class="nave-link" Match="NavLinkMatch.All">
+                        <div class="btn btn-primary"> Next </div>
+                    </NavLink>
+                    <NavLink href="/MyInbox/Documents/PromotionGroup/P-20210501-00001" class="nave-link" Match="NavLinkMatch.All">
+                        <div class="btn btn-primary"> Cancel </div>
+                    </NavLink>
+                </Footer>
+            </Card>
+        </Column>
+    </Row>
+</ContentMain>

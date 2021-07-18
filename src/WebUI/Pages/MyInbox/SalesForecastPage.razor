@@ -1,0 +1,468 @@
+﻿@page "/MyInbox/Documents/SalesForecast"
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.DropDowns;
+@using Syncfusion.Blazor.Navigations
+
+@namespace GFCA.WebUI.Pages.MyInbox.Documents
+
+<style>
+    div.table {
+        display: table;
+        width: 85%;
+        margin: .5% auto 0;
+        border-collapse: separate;
+        font-weight: 400;
+    }
+
+    .table_row {
+        display: table-row;
+    }
+
+    .table_small {
+        display: table-cell;
+    }
+
+    .table_row > .table_small > .table_cell_th {
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-left: 15px;
+
+        font-weight: bold;
+    }
+    .table_row > .table_small > .table_cell {
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-left: 15px;
+    }
+
+    @@media screen and (max-width: 1080px) {
+        .table {
+            width: 90%
+        }
+    }
+</style>
+
+<ContentMain>
+    <Row>
+        <Column Classes="col.md._12">
+            <Card>
+                <Header>
+
+                    <div class="table_row">
+                        <div class="table_small">
+                            <div class="table_cell">Sales Forecast for SF-0XXX-XXXXXX-XXXXX-XX</div>
+                        </div>
+                        <div class="table_small">
+                            <div class="table_cell">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                        </div>
+                        <div class="table_small">
+                            <div class="table_cell">
+                                <SfButton IsPrimary="true">Submit</SfButton>
+                                <SfButton IsPrimary="true">Confirm</SfButton>
+                                <SfButton>Discard</SfButton>
+                            </div>
+                        </div>
+                    </div>
+
+                </Header>
+
+                <Body>
+
+                    <div class="table">
+
+                        <div class="table_row">
+                            <div class="table_small">
+                                <div class="table_cell_th">Creater</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell_th">Requester</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell_th">Client</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell_th">Custormer</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell_th">Status</div>
+                            </div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small">
+                                <div class="table_cell">TEAM1:Mr.Dummy Dummy</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">TEAM1:Mr.Dummy Dummy</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">1234-Client name</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">1234-Customer name</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell">Submited</div>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <SfTab Height="500px" CssClass="tab-adaptive" HeaderPlacement="HeaderPosition.Top" OverflowMode="OverflowMode.Scrollable">
+                        <TabItems>
+                            <TabItem>
+                                <ChildContent><TabHeader Text="Overview"></TabHeader></ChildContent>
+                                <ContentTemplate>
+                                    <br />
+                                    <div class="table">
+                                        <div class="table_row">
+                                            <div class="table_small">
+                                                <div class="table_cell_th">Year</div>
+                                            </div>
+                                            <div class="table_small">
+                                                <div class="table_cell">2021</div>
+                                            </div>
+                                            <div class="table_small">
+                                                <div class="table_cell_th">Total Estimated Sales</div>
+                                            </div>
+                                            <div class="table_small">
+                                                <div class="table_cell">0.00</div>
+                                            </div>
+
+                                        </div>
+                                        <div class="table_row">
+                                            <div class="table_small">
+                                                <div class="table_cell_th">Channel</div>
+                                            </div>
+                                            <div class="table_small">
+                                                <div class="table_cell">MT - Modern Trade</div>
+                                            </div>
+                                            <div class="table_small">
+                                                <div class="table_cell_th">Forecast Type</div>
+                                            </div>
+                                            <div class="table_small">
+                                                <div class="table_cell">Product (SKU)</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2">Month</th>
+                                                <th colspan="2">Total</th>
+                                                <th colspan="2">Sale</th>
+                                                <th colspan="2">FOC</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Qty</th>
+                                                <th>BTH</th>
+
+                                                <th>Qty</th>
+                                                <th>BTH</th>
+
+                                                <th>Qty</th>
+                                                <th>BTH</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td>Jan</td><td>1,000</td><td>1,000</td><td>1,000</td><td>0</td><td>0</td><td>0</td></tr>
+                                            <tr><td>Feb</td><td>1,000</td><td>1,000</td><td>1,000</td><td>0</td><td>0</td><td>0</td></tr>
+                                            <tr><td>Mar</td><td>1,000</td><td>1,000</td><td>1,000</td><td>0</td><td>0</td><td>0</td></tr>
+                                            <tr><td>Apl</td><td>1,000</td><td>1,000</td><td>1,000</td><td>0</td><td>0</td><td>0</td></tr>
+                                            <tr><td>Jul</td><td>1,000</td><td>1,000</td><td>1,000</td><td>0</td><td>0</td><td>0</td></tr>
+                                            <tr><td>Jul</td><td>1,000</td><td>1,000</td><td>1,000</td><td>0</td><td>0</td><td>0</td></tr>
+                                        </tbody>
+                                    </table>
+                                </ContentTemplate>
+                            </TabItem>
+                            <TabItem>
+                                <ChildContent><TabHeader Text="Details"></TabHeader></ChildContent>
+                                <ContentTemplate>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th></th>
+                                                <th colspan="2">Total (THB)</th>
+                                                <th colspan="2">January (THB)</th>
+                                                <th colspan="2">February (THB)</th>
+                                                <th colspan="2">March (THB)</th>
+                                                <th colspan="2">April (THB)</th>
+                                                <th colspan="2">May (THB)</th>
+                                                <th colspan="2">June (THB)</th>
+                                                <th colspan="2">July (THB)</th>
+                                                <th colspan="2">August (THB)</th>
+                                                <th colspan="2">September (THB)</th>
+                                                <th colspan="2">October (THB)</th>
+                                                <th colspan="2">November (THB)</th>
+                                                <th colspan="2">December (THB)</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Category</th>
+                                                <th>Sale UOM Product (SKU) only</th>
+
+                                                <th>Sales</th>
+                                                <th>FOC</th>
+
+                                                <th>Sales</th>
+                                                <th>FOC</th>
+                                                <th>Sales</th>
+                                                <th>FOC</th>
+                                                <th>Sales</th>
+                                                <th>FOC</th>
+                                                <th>Sales</th>
+                                                <th>FOC</th>
+                                                <th>Sales</th>
+                                                <th>FOC</th>
+                                                <th>Sales</th>
+                                                <th>FOC</th>
+                                                <th>Sales</th>
+                                                <th>FOC</th>
+                                                <th>Sales</th>
+                                                <th>FOC</th>
+                                                <th>Sales</th>
+                                                <th>FOC</th>
+                                                <th>Sales</th>
+                                                <th>FOC</th>
+                                                <th>Sales</th>
+                                                <th>FOC</th>
+                                                <th>Sales</th>
+                                                <th>FOC</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            
+                                            <tr>
+                                                <td>
+                                                    <NavLink href="/MyInbox/Documents/SalesForecast/2021/SKU1" class="nave-link" Match="NavLinkMatch.All">
+                                                        Category 1
+                                                    </NavLink>
+                                                </td>
+                                                <td>SKU 01</td>
+                                                <td>12.00 <br /> [0.00]</td>
+                                                <td>12.00 <br /> [0.00]</td>
+
+                                                <td>1.00 <br /> [0.00]</td>
+                                                <td>1.00 <br /> [0.00]</td>
+                                                <td>2.00 <br /> [0.00]</td>
+                                                <td>2.00 <br /> [0.00]</td>
+                                                <td>3.00 <br /> [0.00]</td>
+                                                <td>3.00 <br /> [0.00]</td>
+                                                <td>4.00 <br /> [0.00]</td>
+                                                <td>4.00 <br /> [0.00]</td>
+                                                <td>5.00 <br /> [0.00]</td>
+                                                <td>5.00 <br /> [0.00]</td>
+                                                <td>6.00 <br /> [0.00]</td>
+                                                <td>6.00 <br /> [0.00]</td>
+                                                <td>7.00 <br /> [0.00]</td>
+                                                <td>7.00 <br /> [0.00]</td>
+                                                <td>8.00 <br /> [0.00]</td>
+                                                <td>8.00 <br /> [0.00]</td>
+                                                <td>9.00 <br /> [0.00]</td>
+                                                <td>9.00 <br /> [0.00]</td>
+                                                <td>10.00 <br /> [0.00]</td>
+                                                <td>10.00 <br /> [0.00]</td>
+                                                <td>11.00 <br /> [0.00]</td>
+                                                <td>11.00 <br /> [0.00]</td>
+                                                <td>12.00 <br /> [0.00]</td>
+                                                <td>12.00 <br /> [0.00]</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <NavLink href="/MyInbox/Documents/SalesForecast/2021/SKU1" class="nave-link" Match="NavLinkMatch.All">
+                                                        Category 2
+                                                    </NavLink>
+                                                </td>
+                                                <td>SKU 02</td>
+                                                <td>12.00 <br /> [0.00]</td>
+                                                <td>12.00 <br /> [0.00]</td>
+
+                                                <td>1.00 <br /> [0.00]</td>
+                                                <td>1.00 <br /> [0.00]</td>
+                                                <td>2.00 <br /> [0.00]</td>
+                                                <td>2.00 <br /> [0.00]</td>
+                                                <td>3.00 <br /> [0.00]</td>
+                                                <td>3.00 <br /> [0.00]</td>
+                                                <td>4.00 <br /> [0.00]</td>
+                                                <td>4.00 <br /> [0.00]</td>
+                                                <td>5.00 <br /> [0.00]</td>
+                                                <td>5.00 <br /> [0.00]</td>
+                                                <td>6.00 <br /> [0.00]</td>
+                                                <td>6.00 <br /> [0.00]</td>
+                                                <td>7.00 <br /> [0.00]</td>
+                                                <td>7.00 <br /> [0.00]</td>
+                                                <td>8.00 <br /> [0.00]</td>
+                                                <td>8.00 <br /> [0.00]</td>
+                                                <td>9.00 <br /> [0.00]</td>
+                                                <td>9.00 <br /> [0.00]</td>
+                                                <td>10.00 <br /> [0.00]</td>
+                                                <td>10.00 <br /> [0.00]</td>
+                                                <td>11.00 <br /> [0.00]</td>
+                                                <td>11.00 <br /> [0.00]</td>
+                                                <td>12.00 <br /> [0.00]</td>
+                                                <td>12.00 <br /> [0.00]</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <NavLink href="/MyInbox/Documents/SalesForecast/2021/SKU1" class="nave-link" Match="NavLinkMatch.All">
+                                                        Category 3
+                                                    </NavLink>
+                                                </td>
+                                                <td>SKU 03</td>
+                                                <td>12.00 <br /> [0.00]</td>
+                                                <td>12.00 <br /> [0.00]</td>
+
+                                                <td>1.00 <br /> [0.00]</td>
+                                                <td>1.00 <br /> [0.00]</td>
+                                                <td>2.00 <br /> [0.00]</td>
+                                                <td>2.00 <br /> [0.00]</td>
+                                                <td>3.00 <br /> [0.00]</td>
+                                                <td>3.00 <br /> [0.00]</td>
+                                                <td>4.00 <br /> [0.00]</td>
+                                                <td>4.00 <br /> [0.00]</td>
+                                                <td>5.00 <br /> [0.00]</td>
+                                                <td>5.00 <br /> [0.00]</td>
+                                                <td>6.00 <br /> [0.00]</td>
+                                                <td>6.00 <br /> [0.00]</td>
+                                                <td>7.00 <br /> [0.00]</td>
+                                                <td>7.00 <br /> [0.00]</td>
+                                                <td>8.00 <br /> [0.00]</td>
+                                                <td>8.00 <br /> [0.00]</td>
+                                                <td>9.00 <br /> [0.00]</td>
+                                                <td>9.00 <br /> [0.00]</td>
+                                                <td>10.00 <br /> [0.00]</td>
+                                                <td>10.00 <br /> [0.00]</td>
+                                                <td>11.00 <br /> [0.00]</td>
+                                                <td>11.00 <br /> [0.00]</td>
+                                                <td>12.00 <br /> [0.00]</td>
+                                                <td>12.00 <br /> [0.00]</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </ContentTemplate>
+                            </TabItem>
+                            <TabItem>
+                                <ChildContent>
+                                    <TabHeader Text="Adjustment History"></TabHeader>
+                                </ChildContent>
+                                <ContentTemplate>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Reference No</th>
+                                                <th>Adjustment Comment</th>
+                                                <th>Total Estimated Sale (THB)</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Ref 1</td>
+                                                <td>Mr. A1</td>
+                                                <td>1.00</td>
+                                                <td>Submitted</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ref 2</td>
+                                                <td>Mr. A1</td>
+                                                <td>2.00</td>
+                                                <td>Confirmed</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ref 3</td>
+                                                <td>Mr. B1</td>
+                                                <td>3.00</td>
+                                                <td>MD Approved</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ref 3</td>
+                                                <td>Mr. C1</td>
+                                                <td>4.00</td>
+                                                <td>Accounttant</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ref 5</td>
+                                                <td>Mr. CEO</td>
+                                                <td>5.00</td>
+                                                <td>Reviewer</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </ContentTemplate>
+                            </TabItem>
+                            <TabItem>
+                                <ChildContent>
+                                    <TabHeader Text="Audit"></TabHeader>
+                                </ChildContent>
+                                <ContentTemplate>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>State</th>
+                                                <th>Time</th>
+                                                <th>Actor</th>
+                                                <th>Comment</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Submitted</td>
+                                                <td>HH:mm:ss</td>
+                                                <td>Mr. A1</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Confirmed</td>
+                                                <td>HH:mm:ss</td>
+                                                <td>Mr. A1</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>MD Approved</td>
+                                                <td>HH:mm:ss</td>
+                                                <td>Mr. B1</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Accounttant</td>
+                                                <td>HH:mm:ss</td>
+                                                <td>Mr. C1</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Reviewer</td>
+                                                <td>HH:mm:ss</td>
+                                                <td>Mr. CEO</td>
+                                                <td>Reject reson blah blah</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </ContentTemplate>
+                            </TabItem>
+
+                        </TabItems>
+                    </SfTab>
+                </Body>
+            </Card>
+        </Column>
+    </Row>
+</ContentMain>

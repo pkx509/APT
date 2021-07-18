@@ -1,0 +1,269 @@
+﻿@page "/MyInbox/Documents/SalesForecast/2021/SKU1"
+
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.DropDowns;
+@using Syncfusion.Blazor.Navigations
+
+@namespace GFCA.WebUI.Pages.MyInbox.Documents
+
+<style>
+    div.table {
+        display: table;
+        width: 85%;
+        margin: .5% auto 0;
+        border-collapse: separate;
+        font-weight: 400;
+    }
+
+    .table_row {
+        display: table-row;
+    }
+
+    .table_small {
+        display: table-cell;
+    }
+
+    .table_row > .table_small > .table_cell_th {
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-left: 15px;
+        font-weight: bold;
+    }
+
+    .table_row > .table_small > .table_cell {
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-left: 15px;
+    }
+
+    input {
+        width: 90px;
+    }
+    @@media screen and (max-width: 1080px) {
+        .table {
+            width: 90%
+        }
+    }
+</style>
+
+<ContentMain>
+    <Row>
+        <Column Classes="col.md._12">
+
+            <Card>
+                <Header>
+                    Edit Sales Forecast
+                </Header>
+                <Body>
+
+                    <div class="table">
+
+                        <div class="table_row">
+                            <div class="table_small">
+                                <div class="table_cell_th">Product (SKU)</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell"><input /></div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell_th">CV</div>
+                            </div>
+
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small">
+                                <div class="table_cell_th">% Sale Inc:</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell"><input /></div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell_th">&nbsp;</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell_th">% FOC (based on Sales):</div>
+                            </div>
+                            <div class="table_small">
+                                <div class="table_cell"><input /></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="table">
+
+
+                        <div class="table_row">
+                            <div class="table_small"><div class="table_cell_th">&nbsp;</div></div>
+                            <div class="table_small"><div class="table_cell"> 2018 (Actual) </div></div>
+                            <div class="table_small"><div class="table_cell"> 2019 (Actual)</div></div>
+                            <div class="table_small"><div class="table_cell"> 2019 (Scan)</div></div>
+                            <div class="table_small"><div class="table_cell"> 2021 Sale(Qty)</div></div>
+                            <div class="table_small"><div class="table_cell"> 2021 FOC (Qty)</div></div>
+                            <div class="table_small"><div class="table_cell"> % Sale Inc </div></div>
+                            <div class="table_small"><div class="table_cell"> % FOC (based on Sales) </div></div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small"><div class="table_cell_th">January :</div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small"><div class="table_cell_th">February :</div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small"><div class="table_cell_th">March :</div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small"><div class="table_cell_th">April :</div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small"><div class="table_cell_th">May :</div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small"><div class="table_cell_th">June :</div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small"><div class="table_cell_th">July :</div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small"><div class="table_cell_th">August :</div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small"><div class="table_cell_th">September :</div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small"><div class="table_cell_th">October :</div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small"><div class="table_cell_th">November :</div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small"><div class="table_cell_th">December :</div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell"><input value="0.00" disabled /></div></div>
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_small"><div class="table_cell_th">Total :</div></div>
+                            <div class="table_small"><div class="table_cell_th"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell_th"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell_th"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell_th"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell_th"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell_th"><input value="0.00" disabled /></div></div>
+                            <div class="table_small"><div class="table_cell_th"><input value="0.00" disabled /></div></div>
+                        </div>
+                    </div>
+                </Body>
+                <Footer>
+                    <div class="table_small">
+                        <div class="table_cell">
+                            <SfButton IsPrimary="true">Submit</SfButton>
+                            <SfButton IsPrimary="true">Confirm</SfButton>
+                            <SfButton>Discard</SfButton>
+                            <NavLink href="/MyInbox/Documents/SalesForecast" class="nave-link" Match="NavLinkMatch.All">
+                                Save demo
+                            </NavLink>
+                        </div>
+                    </div>
+                </Footer>
+            </Card>
+
+        </Column>
+    </Row>
+</ContentMain>

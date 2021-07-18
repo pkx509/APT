@@ -1,0 +1,182 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RootNamespace>GFCA.Application</RootNamespace>
+    <AssemblyName>GFCA.Application</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="FluentValidation" Version="9.5.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="9.5.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.11" />
+    <PackageReference Include="Mapster" Version="7.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\Shared\Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\Mappings\" />
+    <Folder Include="EmailInbounds\" />
+    <Folder Include="EmailInbounds\Commands\" />
+    <Folder Include="EmailInbounds\Queries\" />
+    <Folder Include="EmailInbounds\Commands\CreateEmailInbound\" />
+    <Folder Include="EmailInbounds\Commands\DeleteEmailInbound\" />
+    <Folder Include="EmailInbounds\Commands\UpdateEmailInbound\" />
+    <Folder Include="EmailInbounds\Queries\GetEmailInbounds\" />
+    <Folder Include="Documents\" />
+    <Folder Include="Workflows\" />
+    <Folder Include="BusinessParties\Customers\" />
+    <Folder Include="Warehouses\" />
+    <Folder Include="Warehouses\Brands\" />
+    <Folder Include="Warehouses\Products\" />
+    <Folder Include="Warehouses\Brands\Commands\" />
+    <Folder Include="Warehouses\Brands\Queries\" />
+    <Folder Include="Warehouses\Products\Commands\" />
+    <Folder Include="Warehouses\Products\Queries\" />
+    <Folder Include="Warehouses\Products\Commands\CreateProduct\" />
+    <Folder Include="Warehouses\Products\Queries\GetProduct\" />
+    <Folder Include="Warehouses\Products\Commands\UpdateProduct\" />
+    <Folder Include="Warehouses\Products\Commands\DeleteProduct\" />
+    <Folder Include="Warehouses\Brands\Commands\CreateBrand\" />
+    <Folder Include="Warehouses\Brands\Commands\UpdateBrand\" />
+    <Folder Include="Warehouses\Brands\Commands\DeleteBrand\" />
+    <Folder Include="Warehouses\Brands\Queries\GetBrand\" />
+    <Folder Include="BusinessParties\" />
+    <Folder Include="Accountants\" />
+    <Folder Include="Organizations\" />
+    <Folder Include="Sales\" />
+    <Folder Include="Documents\Budgets\" />
+    <Folder Include="Documents\Documents\" />
+    <Folder Include="Documents\FixedContracts\" />
+    <Folder Include="Documents\SaleForecasts\" />
+    <Folder Include="Documents\DocumentTypes\" />
+    <Folder Include="Documents\Budgets\Commands\" />
+    <Folder Include="Documents\Budgets\Queries\" />
+    <Folder Include="Documents\DocumentTypes\Commands\" />
+    <Folder Include="Documents\DocumentTypes\Queries\" />
+    <Folder Include="Documents\FixedContracts\Commands\" />
+    <Folder Include="Documents\FixedContracts\Queries\" />
+    <Folder Include="Documents\SaleForecasts\Commands\" />
+    <Folder Include="Documents\SaleForecasts\Queries\" />
+    <Folder Include="Documents\Documents\Commands\" />
+    <Folder Include="Documents\Documents\Queries\" />
+    <Folder Include="Documents\DocumentTypes\Commands\CreateDocumentType\" />
+    <Folder Include="Documents\DocumentTypes\Commands\UpdateDocumentType\" />
+    <Folder Include="Documents\DocumentTypes\Commands\DeleteDocumentType\" />
+    <Folder Include="Documents\DocumentTypes\Queries\GetDocumentType\" />
+    <Folder Include="Documents\Documents\Queries\GetDocument\" />
+    <Folder Include="Documents\Documents\Commands\CreateDocument\" />
+    <Folder Include="Documents\Documents\Commands\DeleteDocument\" />
+    <Folder Include="Documents\Documents\Commands\UpdateDocument\" />
+    <Folder Include="Documents\Budgets\Commands\CreateBudget\" />
+    <Folder Include="Documents\Budgets\Commands\DeleteBudget\" />
+    <Folder Include="Documents\Budgets\Commands\UpdateBudget\" />
+    <Folder Include="Documents\FixedContracts\Commands\CreateFixedContract\" />
+    <Folder Include="Documents\FixedContracts\Commands\UpdateFixedContract\" />
+    <Folder Include="Documents\FixedContracts\Commands\DeleteFixedContract\" />
+    <Folder Include="Documents\FixedContracts\Queries\GetFixedContract\" />
+    <Folder Include="Documents\SaleForecasts\Commands\CreateSaleForecast\" />
+    <Folder Include="Documents\SaleForecasts\Commands\UpdateSaleForecast\" />
+    <Folder Include="Documents\SaleForecasts\Commands\DeleteSaleForecast\" />
+    <Folder Include="Documents\Budgets\Queries\GetBudget\" />
+    <Folder Include="Organizations\Companies\" />
+    <Folder Include="Organizations\Departments\" />
+    <Folder Include="Organizations\Employees\" />
+    <Folder Include="BusinessParties\Suppliers\" />
+    <Folder Include="Sales\Channels\" />
+    <Folder Include="Sales\Channels\Commands\" />
+    <Folder Include="Sales\Channels\Queries\" />
+    <Folder Include="Sales\Channels\Commands\CreateChannel\" />
+    <Folder Include="Sales\Channels\Queries\GetChannel\" />
+    <Folder Include="Sales\Channels\Commands\UpdateChannel\" />
+    <Folder Include="Sales\Channels\Commands\DeleteChannel\" />
+    <Folder Include="Workflows\Workflows\" />
+    <Folder Include="Workflows\WorkflowStates\" />
+    <Folder Include="Workflows\Workflows\Queries\" />
+    <Folder Include="Workflows\WorkflowStates\Queries\" />
+    <Folder Include="Workflows\WorkflowStates\Queries\GetWorkflowState\" />
+    <Folder Include="Workflows\Workflows\Queries\GetWorkflow\" />
+    <Folder Include="Workflows\WorkflowStates\Queries\GetFlowItem\" />
+    <Folder Include="Workflows\WorkflowStates\Queries\GetWorkflowPipeline\" />
+    <Folder Include="Workflows\WorkflowStates\Commands\" />
+    <Folder Include="Workflows\WorkflowStates\Commands\Approval\" />
+    <Folder Include="Workflows\WorkflowStates\Commands\Cancel\" />
+    <Folder Include="Workflows\WorkflowStates\Commands\Commit\" />
+    <Folder Include="Workflows\WorkflowStates\Commands\Confirm\" />
+    <Folder Include="Workflows\WorkflowStates\Commands\Reject\" />
+    <Folder Include="Workflows\WorkflowStates\Commands\Review\" />
+    <Folder Include="Workflows\WorkflowStates\Commands\Submit\" />
+    <Folder Include="BusinessParties\Suppliers\Commands\" />
+    <Folder Include="BusinessParties\Suppliers\Queries\" />
+    <Folder Include="Warehouses\ProductCategories\" />
+    <Folder Include="Warehouses\ProductCategories\Commands\" />
+    <Folder Include="Warehouses\ProductCategories\Queries\" />
+    <Folder Include="Warehouses\ProductCategories\Queries\GetProductCategory\" />
+    <Folder Include="Warehouses\ProductCategories\Commands\CreateProductCategory\" />
+    <Folder Include="Warehouses\ProductCategories\Commands\UpdateProductCategory\" />
+    <Folder Include="Warehouses\ProductCategories\Commands\DeleteProductCategory\" />
+    <Folder Include="BusinessParties\Suppliers\Queries\GetSupplier\" />
+    <Folder Include="BusinessParties\Suppliers\Commands\CreateSupplier\" />
+    <Folder Include="BusinessParties\Suppliers\Commands\UpdateSupplier\" />
+    <Folder Include="BusinessParties\Suppliers\Commands\DeleteSupplier\" />
+    <Folder Include="Organizations\Companies\Commands\" />
+    <Folder Include="Organizations\Companies\Queries\" />
+    <Folder Include="Organizations\Departments\Commands\" />
+    <Folder Include="Organizations\Departments\Queries\" />
+    <Folder Include="Organizations\Employees\Commands\" />
+    <Folder Include="Organizations\Employees\Queries\" />
+    <Folder Include="Organizations\Companies\Commands\CreateCompany\" />
+    <Folder Include="Organizations\Companies\Commands\UpdateCompany\" />
+    <Folder Include="Organizations\Companies\Commands\DeleteCompany\" />
+    <Folder Include="Organizations\Companies\Queries\GetCompany\" />
+    <Folder Include="Organizations\Departments\Commands\CreateDepartment\" />
+    <Folder Include="Organizations\Departments\Commands\UpdateDepartment\" />
+    <Folder Include="Organizations\Departments\Commands\DeleteDepartment\" />
+    <Folder Include="Organizations\Departments\Queries\GetDepartment\" />
+    <Folder Include="Organizations\Employees\Commands\CreateEmployee\" />
+    <Folder Include="Organizations\Employees\Commands\DeleteEmployee\" />
+    <Folder Include="Organizations\Employees\Commands\UpdateEmployee\" />
+    <Folder Include="Organizations\Employees\Queries\GetEmployee\" />
+    <Folder Include="Documents\SaleForecasts\Queries\GetSaleForecast\" />
+    <Folder Include="Accountants\CostCenters\" />
+    <Folder Include="Accountants\GLAccounts\" />
+    <Folder Include="Accountants\GLAccounts\Commands\" />
+    <Folder Include="Accountants\GLAccounts\Queries\" />
+    <Folder Include="Accountants\CostCenters\Commands\" />
+    <Folder Include="Accountants\CostCenters\Queries\" />
+    <Folder Include="Accountants\CostCenters\Commands\CreateCostCenter\" />
+    <Folder Include="Accountants\CostCenters\Commands\UpdateCostCenter\" />
+    <Folder Include="Accountants\CostCenters\Commands\DeleteCostCenter\" />
+    <Folder Include="Accountants\CostCenters\Queries\GetCostCenter\" />
+    <Folder Include="Accountants\GLAccounts\Commands\CreateGLAccount\" />
+    <Folder Include="Accountants\GLAccounts\Commands\UpdateGLAccount\" />
+    <Folder Include="Accountants\GLAccounts\Commands\DeleteGLAccount\" />
+    <Folder Include="Accountants\GLAccounts\Queries\GetGLAccount\" />
+    <Folder Include="Accountants\GLGroups\" />
+    <Folder Include="Accountants\GLGroups\Commands\" />
+    <Folder Include="Accountants\GLGroups\Queries\" />
+    <Folder Include="Accountants\GLGroups\Queries\GetGLGroup\" />
+    <Folder Include="Accountants\GLGroups\Commands\CreateGLGroup\" />
+    <Folder Include="Accountants\GLGroups\Commands\UpdateGLGroup\" />
+    <Folder Include="Accountants\GLGroups\Commands\DeleteGLGroup\" />
+    <Folder Include="Sales\TradeActivities\" />
+    <Folder Include="Sales\TradeActivities\Commands\" />
+    <Folder Include="Sales\TradeActivities\Queries\" />
+    <Folder Include="Sales\TradeActivities\Commands\CreateTradeActivity\" />
+    <Folder Include="Sales\TradeActivities\Commands\DeleteTradeActivity\" />
+    <Folder Include="Sales\TradeActivities\Commands\UpdateTradeActivity\" />
+    <Folder Include="Sales\TradeActivities\Queries\GetTradeActivity\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\.editorconfig" />
+  </ItemGroup>
+</Project>
